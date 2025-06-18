@@ -66,15 +66,15 @@ It's time to lose yourself in dream.
 
 https://en.wikipedia.org/wiki/Nonet
 
-9. A farmer works for years in the fields
-8. by carthorse hooves and steel plough wheels
-7. grinding ground to greater yields
-6. from birth until she keels.
-5. To market she wields
-4. with "Farm Fresh" seals
-3. veg unpeeled.
-2. Who'll deal?
-1. We'll.
+ 9. A farmer works for years in the fields
+ 8. by carthorse hooves and steel plough wheels
+ 7. grinding ground to greater yields
+ 6. from birth until she keels.
+ 5. To market she wields
+ 4. with "Farm Fresh" seals
+ 3. veg unpeeled.
+ 2. Who'll deal?
+ 1. We'll.
 
 <end>
 
