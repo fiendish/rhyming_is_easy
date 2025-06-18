@@ -169,3 +169,14 @@ not timely, just feelings
 about seeing someone.
 Good morning. Good morning.
 Happy birthday.
+
+<end>
+
+I don't know Brandy Melville, 
+but her tote bag cards are stacked.
+Or maybe it's some St George ads,
+and Brandy's on the back.
+Or maybe they're a lover's mark--
+Brandy plus Melville, true amour.
+Left in the fence around a park
+to tell you of their favorite store.
