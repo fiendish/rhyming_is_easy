@@ -210,3 +210,18 @@ to tell you of their favorite store.
 ```
 
 `<end>`
+
+<img src="images/IkeaWardrobe.jpg" width="45%" align="right"> 
+
+```
+Ikea wardrobe, pulled apart,
+and laid against the wall as art.
+It occupies visual space,
+a white particle board showcase.
+
+Soon I'll sell it to a buyer,
+or maybe give if need is dire.
+
+Oops, a piece broke. I glued the crack.
+They'll never know. It's in the back. :)
+```
