@@ -241,7 +241,7 @@ in very large lettering "Nobody Cares".
 Encouraging language to keep you on track,
 a mantra of power, "Go! Firmly attack!
 It isn't enough to just plan your day smarter!
-You're here to be stronger, so push and Work Harder".
+You're here to be stronger, so push and Work Harder."
 ```
 
 <br clear="right"/>
