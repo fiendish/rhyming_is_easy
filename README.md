@@ -277,3 +277,21 @@ Except Permit 7, I guess. Must be nice.
 <br clear="right"/>
 
 `<end>`
+
+<img src="images/CatHouse.jpg" align="right" width="35%">
+
+```
+A lodge for the cat who's alone on the street
+and looking for shelter or a place to eat
+that's out of harm's way and not under our feet
+with shade to keep cool from the summer sun's heat.
+
+The neighborhood felines that live on our blocks,
+the grey one, the tabby, the black one with socks,
+when resting protected and not out on walks,
+might come spend their nights in this covered cat box.
+```
+
+<br clear="right"/>
+
+`<end>`
