@@ -266,10 +266,10 @@ You must save my pets, 'cuz the house is on fire!
 <img src="images/NoParking.jpg" align="right" width="35%">
 
 ```
-On first week and third, Friday from 9AM.
-From March thru December, they streetsweep again.
+On first week and third, Friday from 9AM,
+from March thru December, they streetsweep again.
 Then Monday thru Wednesday and Thursday thru Sat,
-You've got max 2 hours, I'm sorry, that's that.
+you've got max 2 hours, I'm sorry, that's that.
 But also you're NEVER allowed, so think twice!
 Except Permit 7, I guess. Must be nice.
 ```
