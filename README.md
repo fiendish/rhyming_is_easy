@@ -301,7 +301,7 @@ might come spend their nights in this covered cat box.
 ```
 A park to the north is just one tree and shrubs,
 a quiet side alley away from the clubs
-where people can sit and eat Italian subs
+where people can sit with Italian subs
 defending the street from stone polarbear cubs.
 ```
 
