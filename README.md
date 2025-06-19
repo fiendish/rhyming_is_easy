@@ -243,3 +243,20 @@ a mantra of power, "Go! Firmly attack!
 It isn't enough to just plan your day smarter!
 You're here to be stronger, so push and Work Harder".
 ```
+
+`<end>`
+
+<br clear="right"/>
+
+<img src="images/SaveMyPets.jpg" width="35%" align="right">
+
+```
+Please fly here post haste with your hydrant applier!
+A spark has ignited in my lint-clogged dryer!
+Don air tanks and facemasks to safely respire,
+and helmets and jackets, protective attire!
+Don't dawdle, oh, come quick, before they expire!
+You must save my pets, 'cuz the house is on fire!
+```
+
+`<end>`
