@@ -211,7 +211,7 @@ to tell you of their favorite store.
 
 `<end>`
 
-<img src="images/IkeaWardrobe.jpg" width="45%" align="right"> 
+<img src="images/IkeaWardrobe.jpg" width="40%" align="right">
 
 ```
 Ikea wardrobe, pulled apart,
@@ -226,4 +226,20 @@ Oops, a piece broke. I glued the crack.
 They'll never know. It's in the back. :)
 ```
 
+<br clear="right"/>
+
 `<end>`
+
+<img src="images/WorkHarder.jpg" width="40%" align="right">
+
+```
+A sign in my gym all the way at the back
+with solid white writing and background in black,
+alongside the bikes and mechanical stairs,
+in very large lettering "Nobody Cares".
+
+Encouraging language to keep you on track,
+a mantra of power, "Go! Firmly attack!
+It isn't enough to just plan your day smarter!
+You're here to be stronger, so push and Work Harder".
+```
