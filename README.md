@@ -211,7 +211,7 @@ to tell you of their favorite store.
 
 `<end>`
 
-<img src="images/IkeaWardrobe.jpg" width="40%" align="right">
+<img src="images/IkeaWardrobe.jpg" width="35%" align="right">
 
 ```
 Ikea wardrobe, pulled apart,
@@ -230,7 +230,7 @@ They'll never know. It's in the back. :)
 
 `<end>`
 
-<img src="images/WorkHarder.jpg" width="40%" align="right">
+<img src="images/WorkHarder.jpg" width="35%" align="right">
 
 ```
 A sign in my gym all the way at the back
