@@ -295,3 +295,16 @@ might come spend their nights in this covered cat box.
 <br clear="right"/>
 
 `<end>`
+
+<img src="images/StonePolarbears.jpg" align="right" width="35%">
+
+```
+A park to the north is just one tree and shrubs,
+a quiet side alley away from the clubs
+where people can sit and eat Italian subs
+defending the street from stone polarbear cubs.
+```
+
+<br clear="right"/>
+
+`<end>`
