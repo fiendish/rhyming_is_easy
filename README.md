@@ -244,9 +244,9 @@ It isn't enough to just plan your day smarter!
 You're here to be stronger, so push and Work Harder".
 ```
 
-`<end>`
-
 <br clear="right"/>
+
+`<end>`
 
 <img src="images/SaveMyPets.jpg" width="35%" align="right">
 
