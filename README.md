@@ -226,7 +226,7 @@ Oops, a piece broke. I glued the crack.
 They'll never know. It's in the back. :)
 ```
 
-<br clear="right"/>
+<br clear="both"/>
 
 `<end>`
 
@@ -244,7 +244,7 @@ It isn't enough to just plan your day smarter!
 You're here to be stronger, so push and Work Harder."
 ```
 
-<br clear="right"/>
+<br clear="both"/>
 
 `<end>`
 
@@ -259,7 +259,7 @@ Don't dawdle, oh, come quick, before they expire!
 You must save my pets, 'cuz the house is on fire!
 ```
 
-<br clear="right"/>
+<br clear="both"/>
 
 `<end>`
 
@@ -274,7 +274,7 @@ But also you're NEVER allowed, so think twice!
 Except Permit 7, I guess. Must be nice.
 ```
 
-<br clear="right"/>
+<br clear="both"/>
 
 `<end>`
 
@@ -292,7 +292,7 @@ when resting protected and not out on walks,
 might come spend their nights in this covered cat box.
 ```
 
-<br clear="right"/>
+<br clear="both"/>
 
 `<end>`
 
@@ -305,6 +305,45 @@ where people can sit with Italian subs
 defending the street from stone polarbear cubs.
 ```
 
-<br clear="right"/>
+<br clear="both"/>
+
+`<end>`
+
+<img src="images/ArthurOnTheStairs.jpg" align="right" width="35%">
+
+```
+My cat's a little dummy,
+brain squishy like a gummy.
+He's got a fluffy tummy, 
+but 
+his hearing's pretty crummy.
+
+Half way up the staircase, he
+calls out loud to locate me.
+So I walk over to see
+the cause of his crying plea.
+
+When I say his name, he
+looks the wrong way and sees
+no one at the top and
+thinks he just can't see me.
+
+Then I call him again, and he swings his head around,
+sees me standing on the landing nearer to the ground,
+looks back up and then back down again until his eyes
+recognize my visage which he notes with some surprise.
+
+His face lights up, "Oh, hey! You're there!
+How'd you get past me on the stairs?
+I heard you up, but now you're down.
+I guess my senses turned around!"
+
+I say "I know, there's no brain there.
+Your head is filled with fluff and air.
+It makes you super sweet and true.
+It's ok though, I love you too."
+```
+
+<br clear="both"/>
 
 `<end>`
