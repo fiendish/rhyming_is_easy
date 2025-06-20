@@ -235,7 +235,7 @@ They'll never know. It's in the back. :)
 ```
 A sign in my gym all the way at the back
 with solid white writing and background in black,
-alongside the bikes and mechanical stairs,
+alongside the bikes and electronic stairs,
 in very large lettering "Nobody Cares".
 
 Encouraging language to keep you on track,
