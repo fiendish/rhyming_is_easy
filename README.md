@@ -380,3 +380,26 @@ projecting generosity:
 <br clear="both"/>
 
 `<end>`
+
+<img src="images/NightHatDark.jpg" align="right" width="35%">
+
+```
+Near South and Broad there is a wall
+of Mural Arts causation.
+A lion's face, a drill, a clock,
+a scroll of divination.
+
+The I Ching runs behind a wheel
+and passersby can reach and spin
+to let the future unconceal
+the best way for them to begin.
+
+We stop, we read, we make our bets
+about which guidances we'll all get.
+I spin it thrice, and, at the mark,
+I hit the night, the hat, the dark.
+```
+
+<br clear="both"/>
+
+`<end>`
