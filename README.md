@@ -360,3 +360,21 @@ and curiously try to assess what it is that my eyes see.
 <br clear="both"/>
 
 `<end>`
+
+```
+Come learn about economics,
+gender norms, and microphonics,
+books, zines, wires, and anarchy.
+
+Not questionable, Iffy.
+
+Call whomever, share the glee,
+a payphone says, laconically,
+projecting generosity:
+
+"Donations only. All calls free."
+```
+
+<br clear="both"/>
+
+`<end>`
