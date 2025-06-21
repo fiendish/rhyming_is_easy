@@ -361,6 +361,17 @@ and curiously try to assess what it is that my eyes see.
 
 `<end>`
 
+<img src="images/WhatISee.jpg">
+
+```
+I see the sunlight singing songs of praise. 
+It shines signs on your face, "Good morning. Happy Birthday."
+```
+
+<br clear="both"/>
+
+`<end>`
+
 <img src="images/AllCallsFree.jpg" width="35%" align="right">
 
 ```
