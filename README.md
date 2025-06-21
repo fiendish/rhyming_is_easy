@@ -395,7 +395,7 @@ to let the future unconceal
 the best way for them to begin.
 
 We stop, we read, we make our bets
-about which guidances we'll all get.
+about which guidance we'll each get.
 I spin it thrice, and, at the mark,
 I hit the night, the hat, the dark.
 ```
