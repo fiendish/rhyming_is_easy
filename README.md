@@ -380,3 +380,23 @@ projecting generosity:
 <br clear="both"/>
 
 `<end>`
+
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>
+
+```
+asdf
+```
+
+</td>
+<td width="35%" >
+<video controls>
+  <source src="images/Bubbles.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</td>
+</tr>
+</table>
+
+`<end>`
