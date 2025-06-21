@@ -380,14 +380,3 @@ projecting generosity:
 <br clear="both"/>
 
 `<end>`
-
-<video controls width=50%>
-  <source src="images/Bubbles.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-```
-asdf
-```
-
-`<end>`
