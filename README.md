@@ -403,3 +403,21 @@ I hit the night, the hat, the dark.
 <br clear="both"/>
 
 `<end>`
+
+<img src="images/MetalCat.jpg" width="35%" align="right">
+
+```
+Metal cat, metal cat, 
+what the heck you staring at
+perched high up the 'lectric pole
+in a fetching turquoise stole?
+
+Trees behind you show right through 
+your body made of curlycues.
+I wish you looked down at the street 
+I like your face more than your feet.
+```
+
+<br clear="both">
+
+`<end>`
