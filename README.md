@@ -361,6 +361,8 @@ and curiously try to assess what it is that my eyes see.
 
 `<end>`
 
+<img src="images/AllCallsFree.jpg" width="35%" align="right">
+
 ```
 Come learn about economics,
 gender norms, and microphonics,
