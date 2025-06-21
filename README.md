@@ -347,3 +347,17 @@ It's ok though, I love you too."
 <br clear="both"/>
 
 `<end>`
+
+<img src="images/Speckles1.jpg" width="35%">
+<img src="images/Speckles2.jpg" width="35%">
+
+```
+Sun-sprinkled scintillant speckles strewn astride a shining grin.
+Dazzling dancing diaphanous freckles dot your delicate dappled skin.
+Laughing eyes behind dark glasses gaze at me uncertainly
+and curiously try to assess what it is that my eyes see.
+```
+
+<br clear="both"/>
+
+`<end>`
