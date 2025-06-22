@@ -492,19 +492,12 @@ I see the cross streets "Beck" and "Second".
 
 ```
 In a window
-
 down the block
-
 past the kids with
-
 sidewalk chalk,
-
 cat with languor,
-
 eartip cut,
-
 dark tabby fur,
-
 named Peanut.
 ```
 
@@ -516,15 +509,10 @@ named Peanut.
 
 ```
 After the park
-
 one weekend, lazy
-
 dog walk, light beers, Chinese food.
-
 Guitar in hand
-
 you serenade me
-
 to keep away shared solitude.
 ```
 
