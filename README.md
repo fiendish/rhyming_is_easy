@@ -461,13 +461,14 @@ and know the bugs must love it lots?
 
 ```
 Pareidolia, in this place, 
-crafted from some stars and pipe.
+made from metal stars and pipe.
 If I told ya', it's a face,
 you'd agree that I am right.
 How we see it, who can say.
 Maybe it's a trick of light.
-Or maybe our brains work this way
-to dodge the wall man's slanted bite.
+
+or Maybe our brains work this way
+to Dodge the wall man's slanted bite.
 ```
 
 <br clear="both">
