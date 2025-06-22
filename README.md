@@ -191,7 +191,7 @@ Enjoying each one!
 When greeting, when leaving,
 in morning, in evening,
 not timely, just feelings
-about seeing someone.
+'bout seeing someone.
 Good morning. Good morning.
 Happy birthday.
 ```
