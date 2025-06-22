@@ -493,7 +493,7 @@ I see the cross streets "Beck" and "Second".
 ```
 In a window
 
-on my walk
+down the block
 
 past the kids with
 
