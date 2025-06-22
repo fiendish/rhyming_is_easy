@@ -26,6 +26,7 @@ hr {
   border: none;
   height: 2px;
   max-width: 600px;
+  align-self: center;
   width: 70%;
   margin: 2.5em auto;
   background: linear-gradient(to right, #e0e0e0 0%, #b6b6b6 50%, #e0e0e0 100%);
