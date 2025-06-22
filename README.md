@@ -173,6 +173,8 @@ And that's a better endpoint than the street.
 
 `<end>`
 
+<img src="images/HappyBirthday.jpg" width="50%" >
+
 ```
 Happy Birthday, so they say!
 You woke up! It's a brand new day!
