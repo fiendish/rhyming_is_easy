@@ -34,18 +34,9 @@ hr {
 .image-row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 0.4em;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 1.5em;
-}
-
-.image-row img {
-  flex: 1 1 0;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  min-width: 0;
 }
 
 .poem-block.left-image {
