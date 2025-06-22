@@ -512,7 +512,7 @@ named Peanut.
 
 `<end>`
 
-<img src="images/Serenade.jpg">
+<img src="images/Serenade.jpg" width="50%">
 
 ```
 After the park
