@@ -442,7 +442,7 @@ I like your face more than your feet.
 <img src="images/TinyBugs.jpg" align="right" width="35%">
 
 ```
-Tiny microscopic bugs
+Hidden microscopic bugs
 eating holes in all the leaves.
 I hope they don't invade my hugs
 and give me itchy tickly sleeves.
