@@ -477,7 +477,7 @@ to dodge the wall man's slanted bite.
 <img src="images/BeckSecond.jpg" width=35% align="right">
 
 ```
-At the corner on my walk,
+At a corner on my walk,
 a geographic marker beckoned.
 Letters carved in cement block,
 I see the cross streets "Beck" and "Second".
