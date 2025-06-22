@@ -1,0 +1,91 @@
+body {
+  background: #f9f9f6;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.poem-block {
+  max-width: 800px;
+  width: 100%;
+  background: #fff;
+  margin: 1em 0;
+  padding: 1.5em 2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.poem-block.left-image {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.image-column {
+    width: 35%;
+    margin-right: 2em;
+}
+
+.image-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: left;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.image-row img {
+  min-width: 80px;
+  align-self: flex-start;
+}
+
+.poem-block pre {
+  font-family: inherit;
+  font-size: 1.1em;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  white-space: pre;
+}
+
+.poem-block a {
+  color: #3366cc;
+  text-decoration: underline;
+  margin-bottom: 0.5em;
+  display: inline-block;
+}
+
+img {
+  border-radius: 9px !important;
+  margin: 0.1em;
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .poem-block,
+  .poem-block.left-image {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 0em;
+  font-size: 2.2em;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
