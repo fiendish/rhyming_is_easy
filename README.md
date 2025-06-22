@@ -354,7 +354,7 @@ It's ok though, I love you too."
 
 `<end>`
 
-<img src="images/Speckles1.jpg" width="33%"> <img src="images/Speckles2.jpg" width="33%"><img src="images/Speckles3.jpg" width="33%">
+<img src="images/Speckles1.jpg" width="32%"> <img src="images/Speckles2.jpg" width="32%"> <img src="images/Speckles3.jpg" width="32%">
 
 ```
 Sun-sprinkled scintillant speckles strewn astride a shining grin.
