@@ -196,6 +196,8 @@ Good morning. Good morning.
 Happy birthday.
 ```
 
+<br clear="both"/>
+
 `<end>`
 
 <img src="images/BrandyMelville1.jpg" width=50%><img src="images/BrandyMelville2.jpg" width=50%>
@@ -210,6 +212,8 @@ Brandy plus Melville, true amour.
 Left in the fence around a park
 to tell you of their favorite store.
 ```
+
+<br clear="both"/>
 
 `<end>`
 
