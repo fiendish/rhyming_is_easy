@@ -26,10 +26,9 @@ hr {
   border: none;
   height: 2px;
   max-width: 600px;
-  align-self: center;
   width: 70%;
-  margin: 2.5em auto;
-  background: linear-gradient(to right, #e0e0e0 0%, #b6b6b6 50%, #e0e0e0 100%);
+  margin: 2.5em 0 2.5em 0;
+  background: linear-gradient(to right, #222 0%, #b6b6b6 40%, #e0e0e0 80%, rgba(224,224,224,0) 100%);
 }
 
 .image-row {
