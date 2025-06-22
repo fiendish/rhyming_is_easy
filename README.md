@@ -487,7 +487,7 @@ I see the cross streets "Beck" and "Second".
 
 `<end>`
 
-<video src="images/Bubbles.mp4"></video>
+http://images/Bubbles.mp4
 
 ```
 ```
