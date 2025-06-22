@@ -361,7 +361,7 @@ and curiously try to assess what it is that my eyes see.
 
 `<end>`
 
-<img src="images/WhatISee.jpg">
+<img src="images/WhatISee.jpg" width="40%">
 
 ```
 I see the sunlight singing songs of praise. 
