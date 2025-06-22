@@ -487,3 +487,27 @@ I see the cross streets "Beck" and "Second".
 <br clear="both">
 
 `<end>`
+
+<img src="images/Peanut.jpg" width="35%" align="right">
+
+```
+In a window
+
+on my walk
+
+past the kids with
+
+sidewalk chalk,
+
+cat with languor,
+
+eartip cut,
+
+dark tabby fur,
+
+named Peanut.
+```
+
+<br clear="both">
+
+`<end>`
