@@ -424,7 +424,7 @@ perched high up the 'lectric pole
 in a fetching turquoise stole?
 
 Trees behind you show right through 
-your body made of curlycues.
+your body made of curlicues.
 I wish you looked down at the street 
 I like your face more than your feet.
 ```
