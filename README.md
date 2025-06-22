@@ -456,3 +456,20 @@ and know the bugs must love it lots?
 <br clear="both">
 
 `<end>`
+
+<img src="images/Pareidolia.jpg" align="right" width="35%">
+
+```
+Pareidolia, in this place, 
+crafted from some stars and pipe.
+If I told ya', it's a face,
+you'd agree that I am right.
+How we see it, who can say.
+Maybe it's a trick of light.
+Or maybe brains just work this way
+to dodge the wall man's slanted bite.
+```
+
+<br clear="both">
+
+`<end>`
