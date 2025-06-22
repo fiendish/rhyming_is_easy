@@ -196,7 +196,7 @@ Good morning. Good morning.
 Happy birthday.
 ```
 
-<br clear="both"/>
+<br clear="both">
 
 `<end>`
 
@@ -213,7 +213,7 @@ Left in the fence around a park
 to tell you of their favorite store.
 ```
 
-<br clear="both"/>
+<br clear="both">
 
 `<end>`
 
@@ -232,7 +232,7 @@ Oops, a piece broke. I glued the crack.
 They'll never know. It's in the back. :)
 ```
 
-<br clear="both"/>
+<br clear="both">
 
 `<end>`
 
@@ -250,7 +250,7 @@ It isn't enough to just plan your day smarter!
 You're here to be stronger, so push and Work Harder."
 ```
 
-<br clear="both"/>
+<br clear="both">
 
 `<end>`
 
@@ -265,7 +265,7 @@ Don't dawdle, oh, come quick, before they expire!
 You must save my pets, 'cuz the house is on fire!
 ```
 
-<br clear="both"/>
+<br clear="both">
 
 `<end>`
 
@@ -280,7 +280,7 @@ But also you're NEVER allowed, so think twice!
 Except Permit 7, I guess. Must be nice.
 ```
 
-<br clear="both"/>
+<br clear="both">
 
 `<end>`
 
@@ -298,7 +298,7 @@ when resting protected and not out on walks,
 might come spend their nights in this covered cat box.
 ```
 
-<br clear="both"/>
+<br clear="both">
 
 `<end>`
 
@@ -311,7 +311,7 @@ where people can sit with Italian subs
 defending the street from stone polarbear cubs.
 ```
 
-<br clear="both"/>
+<br clear="both">
 
 `<end>`
 
@@ -350,7 +350,7 @@ It makes you super sweet and true.
 It's ok though, I love you too."
 ```
 
-<br clear="both"/>
+<br clear="both">
 
 `<end>`
 
@@ -363,7 +363,7 @@ Laughing eyes behind dark glasses gaze at me uncertainly
 and curiously try to assess what it is that my eyes see.
 ```
 
-<br clear="both"/>
+<br clear="both">
 
 `<end>`
 
@@ -374,7 +374,7 @@ I see the sunlight singing songs of praise.
 It shines signs on your face, "Good morning. Happy Birthday."
 ```
 
-<br clear="both"/>
+<br clear="both">
 
 `<end>`
 
@@ -394,7 +394,7 @@ projecting generosity:
 "Donations only. All calls free."
 ```
 
-<br clear="both"/>
+<br clear="both">
 
 `<end>`
 
@@ -417,7 +417,7 @@ I spin it thrice, and, at the mark,
 I hit the night, the hat, the dark.
 ```
 
-<br clear="both"/>
+<br clear="both">
 
 `<end>`
 
@@ -433,6 +433,24 @@ Trees behind you show right through
 your body made of curlicues.
 I wish you looked down at the street 
 I like your face more than your feet.
+```
+
+<br clear="both">
+
+`<end>`
+
+<img src="images/TinyBugs.jpg" align="right" width="35%">
+
+```
+Tiny microscopic bugs
+eating holes in all the leaves.
+I hope they don't invade my hugs
+and give me itchy tickly sleeves.
+
+Does the plant mind, do you think,
+that it's riddled full of dots?
+Or does it yearn for insect friends
+and know the bugs must love it lots?
 ```
 
 <br clear="both">
