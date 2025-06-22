@@ -511,3 +511,23 @@ named Peanut.
 <br clear="both">
 
 `<end>`
+
+<img src="images/Serenade.jpg">
+
+```
+After the park
+
+one weekend, lazy
+
+dog walk, light beers, Chinese food.
+
+Guitar in hand
+
+you serenade me
+
+to keep away shared solitude.
+```
+
+<br clear="both">
+
+`<end>`
