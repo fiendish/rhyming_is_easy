@@ -466,7 +466,7 @@ If I told ya', it's a face,
 you'd agree that I am right.
 How we see it, who can say.
 Maybe it's a trick of light.
-Or maybe brains just work this way
+Or maybe our brains work this way
 to dodge the wall man's slanted bite.
 ```
 
