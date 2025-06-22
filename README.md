@@ -461,7 +461,7 @@ and know the bugs must love it lots?
 
 ```
 Pareidolia, in this place, 
-made from metal stars and pipe.
+made from metal stars and pipes.
 If I told ya', it's a face,
 you'd agree that I am right.
 How we see it, who can say.
