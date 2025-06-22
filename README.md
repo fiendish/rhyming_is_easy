@@ -511,7 +511,7 @@ named Peanut.
 After the park
 one weekend, lazy
 dog walk, light beers, Chinese food.
-Guitar in hand
+Guitar in hand,
 you serenade me
 to keep away shared solitude.
 ```
