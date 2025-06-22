@@ -486,8 +486,3 @@ I see the cross streets "Beck" and "Second".
 <br clear="both">
 
 `<end>`
-
-https://images/Bubbles.mp4
-
-```
-```
