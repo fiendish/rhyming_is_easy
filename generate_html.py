@@ -67,14 +67,14 @@ def parse_poems_to_html_blocks(content):
     return html_blocks
 
 def main():
-    """Main entry point: read poems.txt, parse, and output a complete HTML page."""
+    """Main entry point: read poems.txt, parse, and output a complete HTML page with click-to-enlarge images."""
     if len(sys.argv) < 2:
         print('Usage: python generate_html.py poems.txt > index.html')
         sys.exit(1)
     with open(sys.argv[1], 'r', encoding='utf-8') as f:
         content = f.read()
     html_blocks = parse_poems_to_html_blocks(content)
-    # HTML template from index.html
+    # HTML template from index.html with click-to-enlarge images
     print('<!DOCTYPE html>')
     print('<html lang="en">')
     print('<head>')
@@ -91,8 +91,33 @@ def main():
     for html_block in html_blocks:
         print(html_block)
         print('    <hr>')
-    print('The end.')
+    print('end')
     print('  </main>')
+    print('  <script>')
+    print("""
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('img').forEach(function(img) {
+      img.addEventListener('click', function(e) {
+        if (img.classList.contains('enlarged-image')) {
+          img.classList.remove('enlarged-image');
+          const backdrop = document.querySelector('.enlarged-image-backdrop');
+          if (backdrop) backdrop.remove();
+        } else {
+          const backdrop = document.createElement('div');
+          backdrop.className = 'enlarged-image-backdrop';
+          backdrop.onclick = function() {
+            img.classList.remove('enlarged-image');
+            backdrop.remove();
+          };
+          document.body.appendChild(backdrop);
+          img.classList.add('enlarged-image');
+        }
+        e.stopPropagation();
+      });
+    });
+  });
+    """)
+    print('  </script>')
     print('</body>')
     print('</html>')
 

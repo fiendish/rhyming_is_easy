@@ -66,3 +66,26 @@ pre {
   line-height: 1.4;
   font-family: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 }
+
+.enlarged-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto !important;
+  height: auto !important;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  border: 2px solid #333;
+  cursor: zoom-out;
+}
+
+.enlarged-image-backdrop {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}
