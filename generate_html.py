@@ -81,7 +81,9 @@ def write_page(html_blocks, page_num, total_pages):
         f.write('  <link rel="stylesheet" href="style.css">\n')
         f.write('</head>\n')
         f.write('<body>\n')
-        f.write('  <h1>Everyday Majestic Musings</h1>\n')
+        f.write('  <header class="banner">\n')
+        f.write('    <h1>Everyday Majestic Musings</h1>\n')
+        f.write('  </header>\n')
         f.write('  <main>\n')
         for html_block in html_blocks:
             f.write(html_block + '\n    <hr>\n')

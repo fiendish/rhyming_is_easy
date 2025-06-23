@@ -6,13 +6,22 @@ body {
   padding: 0 5vw 5vw 5vw;
 }
 
-h1 {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
+header.banner {
+  width: 100vw;
+  margin-left: calc(-1 * 5vw);
+  margin-right: calc(-1 * 5vw);
+  background: linear-gradient(90deg, #e6d6f7 0%, #f3eaff 100%);
+  padding: 1.5em 5vw 1.2em 5vw;
+  box-sizing: border-box;
+  margin-bottom: 2.5em;
+}
+
+header.banner h1 {
+  margin: 0;
   font-size: 2.5em;
   font-weight: normal;
+  color: #4b2e6a;
+  text-align: left;
 }
 
 .poem-unit {
