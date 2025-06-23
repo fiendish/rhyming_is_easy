@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Everyday Majestic Musings</title>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Everyday Majestic Musings</h1>
+  <main>
+<div class="poem-block">
+<div class="poem-unit">
+  <pre>I found a dirty dollar on the ground.
+I guess it's kinda fortunate that I was looking down.
+It's not enough to buy a coffee now,
+but every one I find just gets me closer to the line
+of lifting up the weight that bends my crown.
+A tiny bit, but still it counts somehow?
+This ragged bill, with little grace, unexpectedly misplaced,
+abandoned on its grimy face and sitting in this filthy space,
+until I find it, pick it, pocket,
+transport, carry, escort, walk it
+home to wash it, dry it, lay it...
+And one day soon I'll spend or pay it.</pre>
+</div>
+</div>
+    <hr>
+<div class="poem-block">
+<div class="poem-unit">
+  <pre>Summer fling with a beautiful woman--
+talking 'til dawn, borrowed kisses, park benches, holding hands.
+
+This mustn't last long, says the beautiful woman.
+We cannot go on, says the beautiful woman.
+It's terribly wrong, says the beautiful woman.
+
+My man's coming home, says the beautiful woman,
+and there's a good chance that he won't understand.</pre>
+</div>
+</div>
+    <hr>
+<div class="poem-block">
+<div class="poem-unit">
+  <pre>It's weird, you know, to feel so close.
+How does this make any sense?
+We've only met just now, and yet,
+the conversation's immense.
+
+We talk and talk and talk some more,
+I never get tired, you never get bored.
+Two hours go by, then three, then four.
+It never feels like fulfilling a chore.
+
+I'll be sad when it's in the past tense.</pre>
+</div>
+</div>
+    <hr>
+<div class="poem-block">
+<div class="poem-unit">
+  <pre>Plant a pickle, grow a pickle, take a pickle, owe a pickle.
+Eat a pickle, slurp a pickle, smoke a pickle, blow a pickle. *
+Slice a pickle on the table with a scalpel, surgeon's practice.
+Put a pickle in a pot of sandy soil, prickless cactus.
+Whisper secrets to a pickle, cold and green and wetly glistening.
+Pickle doesn't care what you said, not so very good at listening.
+
+* - This line is sex euphemisms, and I think that's very funny.</pre>
+</div>
+</div>
+    <hr>
+<div class="poem-block">
+<div class="poem-unit">
+  <pre>Two monkeys dance a wild tango
+'round the jungle, hither yon,
+together faster than they can go
+alone through the Amazon.
+They crash right through some prickly bushes,
+gallup off a precipice.
+Sprawling, falling, cold wind rushes
+in their ears, all hope is gone.
+They should have looked where they were going,
+but the monkeys won't be missed.</pre>
+</div>
+</div>
+    <hr>
+<div class="pagination" style="text-align:center;margin:2em 0 1em 0;font-size:1.2em;">
+<a href="page4.html">&laquo; Prev</a>  Page 5 of 6 <a href="page6.html">Next &raquo;</a></div>
+  </main>
+  <script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('img').forEach(function(img) {
+      img.addEventListener('click', function(e) {
+        if (img.classList.contains('enlarged-image')) {
+          img.classList.remove('enlarged-image');
+          const backdrop = document.querySelector('.enlarged-image-backdrop');
+          if (backdrop) backdrop.remove();
+        } else {
+          const backdrop = document.createElement('div');
+          backdrop.className = 'enlarged-image-backdrop';
+          backdrop.onclick = function() {
+            img.classList.remove('enlarged-image');
+            backdrop.remove();
+          };
+          document.body.appendChild(backdrop);
+          img.classList.add('enlarged-image');
+        }
+        e.stopPropagation();
+      });
+    });
+  });
+          </script>
+</body>
+</html>

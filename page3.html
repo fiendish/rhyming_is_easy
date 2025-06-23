@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Everyday Majestic Musings</title>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Everyday Majestic Musings</h1>
+  <main>
+<div class="poem-block">
+<div class="poem-unit left-image">
+  <div class="image-column">
+    <img src="images/StonePolarbears.jpg" alt="StonePolarbears">
+  </div>
+  <pre>A park to the north is just one tree and shrubs,
+a quiet side alley away from the clubs
+where people can sit with Italian subs
+defending the street from stone polarbear cubs.</pre>
+</div>
+</div>
+    <hr>
+<div class="poem-block">
+<div class="poem-unit left-image">
+  <div class="image-column">
+    <img src="images/CatHouse.jpg" alt="CatHouse">
+  </div>
+  <pre>A lodge for the cat who's alone on the street
+and looking for shelter or a place to eat
+that's out of harm's way and not under our feet
+with shade to keep cool from the summer sun's heat.
+
+The neighborhood felines that live on our blocks,
+the grey one, the tabby, the black one with socks,
+when resting protected and not out on walks,
+might come spend their nights in this covered cat box.</pre>
+</div>
+</div>
+    <hr>
+<div class="poem-block">
+<div class="poem-unit left-image">
+  <div class="image-column">
+    <img src="images/NoParking.jpg" alt="NoParking">
+  </div>
+  <pre>On first week and third, Friday from 9AM,
+from March thru December, they streetsweep again.
+Then Monday thru Wednesday and Thursday thru Sat,
+you've got max 2 hours, I'm sorry, that's that.
+But also you're NEVER allowed, so think twice!
+Except Permit 7, I guess. Must be nice.</pre>
+</div>
+</div>
+    <hr>
+<div class="poem-block">
+<div class="poem-unit left-image">
+  <div class="image-column">
+    <img src="images/SaveMyPets.jpg" alt="SaveMyPets">
+  </div>
+  <pre>Please fly here post haste with your hydrate applier!
+A spark has ignited in my lint-clogged dryer!
+Don air tanks and facemasks to safely respire,
+and helmets and jackets, protective attire!
+Don't dawdle, oh, come quick, before they expire!
+You must save my pets, 'cuz the house is on fire!</pre>
+</div>
+</div>
+    <hr>
+<div class="poem-block">
+<div class="poem-unit left-image">
+  <div class="image-column">
+    <img src="images/WorkHarder.jpg" alt="WorkHarder">
+  </div>
+  <pre>A sign in my gym all the way at the back
+with solid white writing and background in black,
+alongside the bikes and electronic stairs,
+in very large lettering "Nobody Cares".
+
+Encouraging language to keep you on track,
+a mantra of power, "Go! Firmly attack!
+It isn't enough to just plan your day smarter!
+You're here to be stronger, so push and Work Harder."</pre>
+</div>
+</div>
+    <hr>
+<div class="pagination" style="text-align:center;margin:2em 0 1em 0;font-size:1.2em;">
+<a href="page2.html">&laquo; Prev</a>  Page 3 of 6 <a href="page4.html">Next &raquo;</a></div>
+  </main>
+  <script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('img').forEach(function(img) {
+      img.addEventListener('click', function(e) {
+        if (img.classList.contains('enlarged-image')) {
+          img.classList.remove('enlarged-image');
+          const backdrop = document.querySelector('.enlarged-image-backdrop');
+          if (backdrop) backdrop.remove();
+        } else {
+          const backdrop = document.createElement('div');
+          backdrop.className = 'enlarged-image-backdrop';
+          backdrop.onclick = function() {
+            img.classList.remove('enlarged-image');
+            backdrop.remove();
+          };
+          document.body.appendChild(backdrop);
+          img.classList.add('enlarged-image');
+        }
+        e.stopPropagation();
+      });
+    });
+  });
+          </script>
+</body>
+</html>

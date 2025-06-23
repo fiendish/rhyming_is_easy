@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Everyday Majestic Musings</title>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Everyday Majestic Musings</h1>
+  <main>
+<div class="poem-block">
+<div class="poem-unit">
+  <pre>I sit here eating a burrito,
+wondering why it looks pink.
+My stomach churns, I feel uneasy.
+Suddenly extremely queasy,
+I barely make it, not so easy,
+to throw it all up in the sink.</pre>
+</div>
+</div>
+    <hr>
+<div class="poem-block">
+<div class="poem-unit">
+  <pre>As I queue here at the bank,
+my mind goes roaming like the tank
+that, stolen, rampaged San Diego,
+mashed some cars like baked potatos,
+knocked down poles and fire hydrants,
+back in 1995.
+
+The thief, they said a jobless plumber,
+grabbed the craft and pulled a runner
+down the streets on top of traffic,
+smashing, crashing, wreaking havoc,
+to run amok ignoring sirens
+on the last day of his life.
+
+So, anyway, I stand and wait,
+and as I do I contemplate
+the lives of folks and all their capers
+that get their names in all the papers.
+
+And with my musings here in line,
+it seems to me that Michael Jackson
+dangling his baby Blanket
+from the balcony on four
+did not ever stop to think
+about all of the media stink
+at little Jr on the brink
+of reaching abruptly the floor.</pre>
+</div>
+</div>
+    <hr>
+The end.
+<div class="pagination" style="text-align:center;margin:2em 0 1em 0;font-size:1.2em;">
+<a href="page5.html">&laquo; Prev</a>  Page 6 of 6 </div>
+  </main>
+  <script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('img').forEach(function(img) {
+      img.addEventListener('click', function(e) {
+        if (img.classList.contains('enlarged-image')) {
+          img.classList.remove('enlarged-image');
+          const backdrop = document.querySelector('.enlarged-image-backdrop');
+          if (backdrop) backdrop.remove();
+        } else {
+          const backdrop = document.createElement('div');
+          backdrop.className = 'enlarged-image-backdrop';
+          backdrop.onclick = function() {
+            img.classList.remove('enlarged-image');
+            backdrop.remove();
+          };
+          document.body.appendChild(backdrop);
+          img.classList.add('enlarged-image');
+        }
+        e.stopPropagation();
+      });
+    });
+  });
+          </script>
+</body>
+</html>
