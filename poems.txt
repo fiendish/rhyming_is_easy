@@ -216,7 +216,7 @@ Good morning. Good morning.
 Happy birthday.
 ===
 link: https://en.wikipedia.org/wiki/Nonet
-none:
+
 9. A farmer works for years in the fields
 8. by carthorse hooves and steel plough wheels
 7. grinding ground to greater yields
@@ -227,7 +227,6 @@ none:
 2. Who'll deal?
 1. We'll.
 ===
-none:
 Three coins catch the corner of my eye.
 Quarter, quarter, dime, how'd you get there little guys?
 Shining shyly from a pile of leaves,
@@ -249,7 +248,6 @@ That all the time I spent with you was good use of my feet.
 Like at the coffee shop there is a tip jar by the line.
 And that's a better endpoint than the street.
 ===
-none:
 I found a dirty dollar on the ground.
 I guess it's kinda fortunate that I was looking down.
 It's not enough to buy a coffee now,
@@ -263,7 +261,6 @@ transport, carry, escort, walk it
 home to wash it, dry it, lay it...
 And one day soon I'll spend or pay it.
 ===
-none:
 Summer fling with a beautiful woman--
 talking 'til dawn, borrowed kisses, park benches, holding hands.
 
@@ -274,7 +271,6 @@ It's terribly wrong, says the beautiful woman.
 My man's coming home, says the beautiful woman,
 and there's a good chance that he won't understand.
 ===
-none:
 It's weird, you know, to feel so close.
 How does this make any sense?
 We've only met just now, and yet,
@@ -287,7 +283,6 @@ It never feels like fulfilling a chore.
 
 I'll be sad when it's in the past tense.
 ===
-none:
 Plant a pickle, grow a pickle, take a pickle, owe a pickle.
 Eat a pickle, slurp a pickle, smoke a pickle, blow a pickle. *
 Slice a pickle on the table with a scalpel, surgeon's practice.
@@ -297,7 +292,6 @@ Pickle doesn't care what you said, not so very good at listening.
 
 * - This line is sex euphemisms, and I think that's very funny.
 ===
-none:
 Two monkeys dance a wild tango
 'round the jungle, hither yon,
 together faster than they can go
@@ -309,7 +303,6 @@ in their ears, all hope is gone.
 They should have looked where they were going,
 but the monkeys won't be missed.
 ===
-none:
 I sit here eating a burrito,
 wondering why it looks pink.
 My stomach churns, I feel uneasy.
@@ -317,7 +310,6 @@ Suddenly extremely queasy,
 I barely make it, not so easy,
 to throw it all up in the sink.
 ===
-none:
 As I queue here at the bank,
 my mind goes roaming like the tank
 that, stolen, rampaged San Diego,
