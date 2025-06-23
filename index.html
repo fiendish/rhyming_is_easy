@@ -501,7 +501,32 @@ of reaching abruptly the floor.</pre>
 </div>
 </div>
     <hr>
-The end.
+end
   </main>
+  <script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('img').forEach(function(img) {
+      img.addEventListener('click', function(e) {
+        if (img.classList.contains('enlarged-image')) {
+          img.classList.remove('enlarged-image');
+          const backdrop = document.querySelector('.enlarged-image-backdrop');
+          if (backdrop) backdrop.remove();
+        } else {
+          const backdrop = document.createElement('div');
+          backdrop.className = 'enlarged-image-backdrop';
+          backdrop.onclick = function() {
+            img.classList.remove('enlarged-image');
+            backdrop.remove();
+          };
+          document.body.appendChild(backdrop);
+          img.classList.add('enlarged-image');
+        }
+        e.stopPropagation();
+      });
+    });
+  });
+    
+  </script>
 </body>
 </html>
