@@ -91,7 +91,7 @@ def main():
     for html_block in html_blocks:
         print(html_block)
         print('    <hr>')
-    print('end')
+    print('The end.')
     print('  </main>')
     print('</body>')
     print('</html>')
