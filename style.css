@@ -67,6 +67,10 @@ pre {
   font-family: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 }
 
+img {
+  cursor: zoom-in;
+}
+
 .enlarged-image {
   position: fixed;
   top: 50%;
