@@ -67,7 +67,7 @@ def parse_poems_to_html_blocks(content):
     return html_blocks
 
 def write_page(html_blocks, page_num, total_pages):
-    """Write a single HTML page with navigation links."""
+    """Write a single HTML page with navigation links and 'The end.' on the last page."""
     filename = 'index.html' if page_num == 1 else f'page{page_num}.html'
     with open(filename, 'w', encoding='utf-8') as f:
         f.write('<!DOCTYPE html>\n')
@@ -85,6 +85,9 @@ def write_page(html_blocks, page_num, total_pages):
         f.write('  <main>\n')
         for html_block in html_blocks:
             f.write(html_block + '\n    <hr>\n')
+        # Add 'The end.' only on the last page
+        if page_num == total_pages:
+            f.write('The end.\n')
         # Navigation
         f.write('<div class="pagination" style="text-align:center;margin:2em 0 1em 0;font-size:1.2em;">\n')
         if page_num > 1:
