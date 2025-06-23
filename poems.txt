@@ -1,64 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Majestic.</title>
-  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Majestic.</h1>
-  <main>
-<div class="poem-block">
-<div class="poem-unit">
-  <div class="image-row">
-    <img src="images/Serenade.jpg" alt="Serenade" style="width:600px">
-  </div>
-  <pre>After the park
+===
+top: Serenade.jpg[600]
+After the park
 one weekend, lazy
 dog walk, light beers, Chinese food.
 Guitar in hand,
 you serenade me
-to keep away shared solitude.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/Peanut.jpg" alt="Peanut">
-  </div>
-  <pre>In a window
+to keep away shared solitude.
+===
+left: Peanut.jpg
+In a window
 down the block
 past the kids with
 sidewalk chalk,
 cat with languor,
 eartip cut,
 dark tabby fur,
-named Peanut.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/BeckSecond.jpg" alt="BeckSecond">
-  </div>
-  <pre>At a corner on my walk,
+named Peanut.
+===
+left: BeckSecond.jpg
+At a corner on my walk,
 a geographic marker beckoned.
 Letters carved in cement block,
-I see the cross streets "Beck" and "Second".</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/Pareidolia.jpg" alt="Pareidolia">
-  </div>
-  <pre>Pareidolia, in this place,
+I see the cross streets "Beck" and "Second".
+===
+left: Pareidolia.jpg
+Pareidolia, in this place,
 made from metal stars and pipes.
 If I told ya' it's a face,
 you'd agree that I am right.
@@ -66,16 +32,10 @@ How we see it, who can say.
 Maybe it's a trick of light.
 
 or Maybe our brains work this way
-to Dodge the wall man's slanted bite.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/TinyBugs.jpg" alt="TinyBugs">
-  </div>
-  <pre>Hidden microscopic bugs
+to Dodge the wall man's slanted bite.
+===
+left: TinyBugs.jpg
+Hidden microscopic bugs
 eating holes in all the leaves.
 I hope they don't invade my hugs
 and give me itchy tickly sleeves.
@@ -83,16 +43,10 @@ and give me itchy tickly sleeves.
 Does the plant mind, do you think,
 that it's riddled full of dots?
 Or does it yearn for insect friends
-and know the bugs must love it lots?</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/MetalCat.jpg" alt="MetalCat">
-  </div>
-  <pre>Metal cat, metal cat, 
+and know the bugs must love it lots?
+===
+left: MetalCat.jpg
+Metal cat, metal cat, 
 what the heck you staring at
 perched high up the 'lectric pole
 in a fetching turquoise stole?
@@ -100,16 +54,10 @@ in a fetching turquoise stole?
 Trees behind you show right through 
 your body made of curlicues.
 I wish you looked down at the street 
-I like your face more than your feet.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/NightHatDark.jpg" alt="NightHatDark">
-  </div>
-  <pre>Near South and Broad there is a wall
+I like your face more than your feet.
+===
+left: NightHatDark.jpg
+Near South and Broad there is a wall
 of Mural Arts causation.
 A lion's face, a drill, a clock,
 a scroll of divination.
@@ -122,16 +70,10 @@ the best way for them to begin.
 We stop, we read, we make our bets
 about which guidance we'll each get.
 I spin it thrice, and, at the mark,
-I hit the night, the hat, the dark.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/AllCallsFree.jpg" alt="AllCallsFree">
-  </div>
-  <pre>Come learn about economics,
+I hit the night, the hat, the dark.
+===
+left: AllCallsFree.jpg
+Come learn about economics,
 gender norms, and microphonics,
 books, zines, wires, and anarchy.
 
@@ -141,38 +83,20 @@ Call whomever, share the glee,
 their payphone says, laconically,
 projecting generosity:
 
-"Donations only. All calls free."</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit">
-  <div class="image-row">
-    <img src="images/Speckles1.jpg" alt="Speckles1" style="width:230px">
-    <img src="images/Speckles2.jpg" alt="Speckles2" style="width:230px">
-    <img src="images/Speckles3.jpg" alt="Speckles3" style="width:230px">
-  </div>
-  <pre>Sun-sprinkled scintillant speckles strewn astride a shining grin.
+"Donations only. All calls free."
+===
+top: Speckles1.jpg[230], Speckles2.jpg[230], Speckles3.jpg[230]
+Sun-sprinkled scintillant speckles strewn astride a shining grin.
 Dazzling dancing diaphanous freckles dot your delicate dappled skin.
 Laughing eyes behind dark glasses gaze at me uncertainly
-and curiously try to assess what it is that my eyes see.</pre>
-</div>
-<br>
-<div class="poem-unit">
-  <div class="image-row">
-    <img src="images/WhatISee.jpg" alt="WhatISee" style="width:300px">
-  </div>
-  <pre>I see the sunlight singing songs of praise. 
-It shines signs on your face, "Good morning. Happy Birthday."</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/ArthurOnTheStairs.jpg" alt="ArthurOnTheStairs">
-  </div>
-  <pre>My cat's a little dummy,
+and curiously try to assess what it is that my eyes see.
+---
+top: WhatISee.jpg[300]
+I see the sunlight singing songs of praise. 
+It shines signs on your face, "Good morning. Happy Birthday."
+===
+left: ArthurOnTheStairs.jpg
+My cat's a little dummy,
 brain squishy like a gummy.
 He's got a fluffy tummy,
 but
@@ -201,28 +125,16 @@ I guess my senses turned around!"
 I say "I know, there's no brain there.
 Your head is filled with fluff and air.
 It makes you super sweet and true.
-It's ok though, I love you too."</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/StonePolarbears.jpg" alt="StonePolarbears">
-  </div>
-  <pre>A park to the north is just one tree and shrubs,
+It's ok though, I love you too."
+===
+left: StonePolarbears.jpg
+A park to the north is just one tree and shrubs,
 a quiet side alley away from the clubs
 where people can sit with Italian subs
-defending the street from stone polarbear cubs.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/CatHouse.jpg" alt="CatHouse">
-  </div>
-  <pre>A lodge for the cat who's alone on the street
+defending the street from stone polarbear cubs.
+===
+left: CatHouse.jpg
+A lodge for the cat who's alone on the street
 and looking for shelter or a place to eat
 that's out of harm's way and not under our feet
 with shade to keep cool from the summer sun's heat.
@@ -230,44 +142,26 @@ with shade to keep cool from the summer sun's heat.
 The neighborhood felines that live on our blocks,
 the grey one, the tabby, the black one with socks,
 when resting protected and not out on walks,
-might come spend their nights in this covered cat box.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/NoParking.jpg" alt="NoParking">
-  </div>
-  <pre>On first week and third, Friday from 9AM,
+might come spend their nights in this covered cat box.
+===
+left: NoParking.jpg
+On first week and third, Friday from 9AM,
 from March thru December, they streetsweep again.
 Then Monday thru Wednesday and Thursday thru Sat,
 you've got max 2 hours, I'm sorry, that's that.
 But also you're NEVER allowed, so think twice!
-Except Permit 7, I guess. Must be nice.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/SaveMyPets.jpg" alt="SaveMyPets">
-  </div>
-  <pre>Please fly here post haste with your hydrate applier!
+Except Permit 7, I guess. Must be nice.
+===
+left: SaveMyPets.jpg
+Please fly here post haste with your hydrate applier!
 A spark has ignited in my lint-clogged dryer!
 Don air tanks and facemasks to safely respire,
 and helmets and jackets, protective attire!
 Don't dawdle, oh, come quick, before they expire!
-You must save my pets, 'cuz the house is on fire!</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/WorkHarder.jpg" alt="WorkHarder">
-  </div>
-  <pre>A sign in my gym all the way at the back
+You must save my pets, 'cuz the house is on fire!
+===
+left: WorkHarder.jpg
+A sign in my gym all the way at the back
 with solid white writing and background in black,
 alongside the bikes and electronic stairs,
 in very large lettering "Nobody Cares".
@@ -275,16 +169,10 @@ in very large lettering "Nobody Cares".
 Encouraging language to keep you on track,
 a mantra of power, "Go! Firmly attack!
 It isn't enough to just plan your day smarter!
-You're here to be stronger, so push and Work Harder."</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit left-image">
-  <div class="image-column">
-    <img src="images/IkeaWardrobe.jpg" alt="IkeaWardrobe">
-  </div>
-  <pre>Ikea wardrobe, pulled apart,
+You're here to be stronger, so push and Work Harder."
+===
+left: IkeaWardrobe.jpg
+Ikea wardrobe, pulled apart,
 and laid against the wall as art.
 It occupies visual space,
 a white particle board showcase.
@@ -293,33 +181,20 @@ Soon I'll sell it to a buyer,
 or maybe give if need is dire.
 
 Oops, a piece broke. I glued the crack.
-They'll never know. It's in the back. :)</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit">
-  <div class="image-row">
-    <img src="images/BrandyMelville1.jpg" alt="BrandyMelville1" style="width:300px">
-    <img src="images/BrandyMelville2.jpg" alt="BrandyMelville2" style="width:300px">
-  </div>
-  <pre>I don't know Brandy Melville,
+They'll never know. It's in the back. :)
+===
+top: BrandyMelville1.jpg[300], BrandyMelville2.jpg[300]
+I don't know Brandy Melville,
 but her tote bag cards are stacked.
 Or maybe it's some St George ads,
 and Brandy's on the back.
 Or maybe they're a lover's mark--
 Brandy plus Melville, true amour.
 Left in the fence around a park
-to tell you of their favorite store.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit">
-  <div class="image-row">
-    <img src="images/HappyBirthday.jpg" alt="HappyBirthday" style="width:500px">
-  </div>
-  <pre>Happy Birthday, so they say!
+to tell you of their favorite store.
+===
+top: HappyBirthday.jpg[500]
+Happy Birthday, so they say!
 You woke up! It's a brand new day!
 The sunlight glows through gauzy curtains.
 The day ahead's not set for certain!
@@ -338,14 +213,10 @@ not timely, just feelings
 'bout seeing someone.
 
 Good morning. Good morning.
-Happy birthday.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit">
-  <a href="https://en.wikipedia.org/wiki/Nonet" target="_blank">https://en.wikipedia.org/wiki/Nonet</a>
-  <pre>none:
+Happy birthday.
+===
+link: https://en.wikipedia.org/wiki/Nonet
+none:
 9. A farmer works for years in the fields
 8. by carthorse hooves and steel plough wheels
 7. grinding ground to greater yields
@@ -354,13 +225,9 @@ Happy birthday.</pre>
 4. with "Farm Fresh" seals
 3. veg unpeeled.
 2. Who'll deal?
-1. We'll.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit">
-  <pre>none:
+1. We'll.
+===
+none:
 Three coins catch the corner of my eye.
 Quarter, quarter, dime, how'd you get there little guys?
 Shining shyly from a pile of leaves,
@@ -380,13 +247,9 @@ It's rescuing, not stealing. Surely that's no glaring crime.
 And when I go out roaming next I'm sure I'll see a sign.
 That all the time I spent with you was good use of my feet.
 Like at the coffee shop there is a tip jar by the line.
-And that's a better endpoint than the street.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit">
-  <pre>none:
+And that's a better endpoint than the street.
+===
+none:
 I found a dirty dollar on the ground.
 I guess it's kinda fortunate that I was looking down.
 It's not enough to buy a coffee now,
@@ -398,13 +261,9 @@ abandoned on its grimy face and sitting in this filthy space,
 until I find it, pick it, pocket,
 transport, carry, escort, walk it
 home to wash it, dry it, lay it...
-And one day soon I'll spend or pay it.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit">
-  <pre>none:
+And one day soon I'll spend or pay it.
+===
+none:
 Summer fling with a beautiful woman--
 talking 'til dawn, borrowed kisses, park benches, holding hands.
 
@@ -413,13 +272,9 @@ We cannot go on, says the beautiful woman.
 It's terribly wrong, says the beautiful woman.
 
 My man's coming home, says the beautiful woman,
-and there's a good chance that he won't understand.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit">
-  <pre>none:
+and there's a good chance that he won't understand.
+===
+none:
 It's weird, you know, to feel so close.
 How does this make any sense?
 We've only met just now, and yet,
@@ -430,13 +285,9 @@ I never get tired, you never get bored.
 Two hours go by, then three, then four.
 It never feels like fulfilling a chore.
 
-I'll be sad when it's in the past tense.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit">
-  <pre>none:
+I'll be sad when it's in the past tense.
+===
+none:
 Plant a pickle, grow a pickle, take a pickle, owe a pickle.
 Eat a pickle, slurp a pickle, smoke a pickle, blow a pickle. *
 Slice a pickle on the table with a scalpel, surgeon's practice.
@@ -444,13 +295,9 @@ Put a pickle in a pot of sandy soil, prickless cactus.
 Whisper secrets to a pickle, cold and green and wetly glistening.
 Pickle doesn't care what you said, not so very good at listening.
 
-* - This line is sex euphemisms, and I think that's very funny.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit">
-  <pre>none:
+* - This line is sex euphemisms, and I think that's very funny.
+===
+none:
 Two monkeys dance a wild tango
 'round the jungle, hither yon,
 together faster than they can go
@@ -460,25 +307,17 @@ gallup off a precipice.
 Sprawling, falling, cold wind rushes
 in their ears, all hope is gone.
 They should have looked where they were going,
-but the monkeys won't be missed.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit">
-  <pre>none:
+but the monkeys won't be missed.
+===
+none:
 I sit here eating a burrito,
 wondering why it looks pink.
 My stomach churns, I feel uneasy.
 Suddenly extremely queasy,
 I barely make it, not so easy,
-to throw it all up in the sink.</pre>
-</div>
-</div>
-    <hr>
-<div class="poem-block">
-<div class="poem-unit">
-  <pre>none:
+to throw it all up in the sink.
+===
+none:
 As I queue here at the bank,
 my mind goes roaming like the tank
 that, stolen, rampaged San Diego,
@@ -505,11 +344,4 @@ from the balcony on four
 did not ever stop to think
 about all of the media stink
 at little Jr on the brink
-of reaching abruptly the floor.</pre>
-</div>
-</div>
-    <hr>
-end
-  </main>
-</body>
-</html>
+of reaching abruptly the floor.

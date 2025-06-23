@@ -1,0 +1,32 @@
+name: Generate HTML
+
+on:
+  push:
+    paths:
+      - poems.txt
+      - generate_html.py
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate index.html
+        run: |
+          python generate_html.py poems.txt > index.html
+
+      - name: Commit and push index.html
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Auto-generate index.html from poems.txt" || echo "No changes to commit"
+          git push

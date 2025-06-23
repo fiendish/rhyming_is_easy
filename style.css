@@ -15,20 +15,31 @@ h1 {
   font-weight: normal;
 }
 
-.poem-block {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+.poem-unit {
   display: block;
+  margin-bottom: 1.5em;
 }
 
-hr {
-  border: none;
-  height: 2px;
-  max-width: 600px;
-  width: 70%;
-  margin: 2.5em 0 2.5em 0;
-  background: linear-gradient(to right, #222 0%, #b6b6b6 40%, #e0e0e0 80%, rgba(224,224,224,0) 100%);
+.left-image {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5em;
+  flex-wrap: wrap;
+}
+
+.image-column {
+  flex: 0 0 280px;
+  width: 280px;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.image-column img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .image-row {
@@ -39,26 +50,13 @@ hr {
   margin-bottom: 1.5em;
 }
 
-.poem-block.left-image {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5em;
-  flex-wrap: wrap;
-}
-
-.poem-block.left-image .image-column {
-  flex: 0 0 280px;
-  width: 280px;
-  max-width: 280px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.poem-block.left-image .image-column img {
-  width: 100%;
-  height: auto;
-  display: block;
+hr {
+  border: none;
+  height: 2px;
+  max-width: 600px;
+  width: 70%;
+  margin: 2.5em 0 2.5em 0;
+  background: linear-gradient(to right, #222 0%, #b6b6b6 40%, #e0e0e0 80%, rgba(224,224,224,0) 100%);
 }
 
 pre {
