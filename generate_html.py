@@ -17,6 +17,10 @@ def parse_image(img_str):
     width = match.group(2)
     return {'filename': filename, 'width': width}
 
+def is_video_file(filename):
+    video_exts = {'.mp4', '.webm', '.ogg', '.mov'}
+    return os.path.splitext(filename)[1].lower() in video_exts
+
 def parse_poem_unit(poem_unit):
     """Parse a single poem unit and return its HTML representation and whether it uses left layout."""
     lines = poem_unit.strip().split('\n')
@@ -35,13 +39,18 @@ def parse_poem_unit(poem_unit):
             div_class = 'image-row' if prefix == 'top' else 'image-column'
             if prefix == 'left':
                 uses_left = True
-            images = [img.strip() for img in parts[1].split(',') if img.strip()]
+            media = [m.strip() for m in parts[1].split(',') if m.strip()]
             html += f'  <div class="{div_class}">\n'
-            for img in images:
-                img_info = parse_image(img)
-                alt = os.path.splitext(os.path.basename(img_info['filename']))[0].replace('_', ' ')
-                style = f' style="width:{img_info["width"]}px"' if img_info['width'] else ''
-                html += f'    <img src="images/{img_info["filename"]}" alt="{alt}"{style}>\n'
+            for m in media:
+                media_info = parse_image(m)
+                filename = media_info['filename']
+                width = media_info['width']
+                alt = os.path.splitext(os.path.basename(filename))[0].replace('_', ' ')
+                style = f' style="width:{width}px"' if width else ''
+                if is_video_file(filename):
+                    html += f'    <video src="images/{filename}" controls loop{style} preload="metadata">Your browser does not support the video tag.</video>\n'
+                else:
+                    html += f'    <img src="images/{filename}" alt="{alt}"{style}>\n'
             html += '  </div>\n'
         else:
             poem_lines.append(line)
