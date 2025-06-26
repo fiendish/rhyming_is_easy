@@ -10,7 +10,7 @@ are doctored, and it's not clear whether
 the change was made officially
 or by a neighbor feeling clever.
 ===
-top: CacklingSun.jpg
+top: CacklingSun.jpg[500]
 The cackling sun melts the sky.
 The exhausted earth heaves, unwilling, out of breath.
 And the people under parasols crawl from shadow to furious shadow, asking why,
