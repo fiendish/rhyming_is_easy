@@ -1,5 +1,5 @@
 ===
-left: CacklingSun.jpg
+top: CacklingSun.jpg
 The cackling sun melts the sky.
 The exhausted earth heaves, unwilling, out of breath.
 And the people under parasols crawl from shadow to furious shadow, asking why,
