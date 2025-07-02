@@ -1,11 +1,13 @@
-name: Generate HTML
+name: Generate and Deploy HTML
 
 on:
   push:
-    paths:
-      - poems.txt
-      - generate_html.py
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write  # Required for deploy-pages action
 
 jobs:
   build:
@@ -23,10 +25,19 @@ jobs:
         run: |
           python generate_html.py poems.txt
 
-      - name: Commit and push HTML
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add *.html
-          git commit -m "Auto-generate HTML from poems.txt" || echo "No changes to commit"
-          git push
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
