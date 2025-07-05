@@ -51,6 +51,12 @@ header.banner h1 {
   display: block;
 }
 
+.image-column video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .image-row {
   display: flex;
   flex-direction: row;
