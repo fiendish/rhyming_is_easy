@@ -1,6 +1,7 @@
 import os
 import sys
 import re
+import time
 
 def html_escape(text):
     """Escape HTML special characters in text."""
@@ -184,6 +185,7 @@ def generate_block_html(block_units, poem_id=None):
 def write_page(structured_blocks, page_num, total_pages):
     """Write a single HTML page with navigation links and 'The end.' on the last page."""
     filename = 'index.html' if page_num == 1 else f'page{page_num}.html'
+    css_version = int(time.time())
     with open(filename, 'w', encoding='utf-8') as f:
         f.write('<!DOCTYPE html>\n')
         f.write('<html lang="en">\n')
@@ -193,7 +195,7 @@ def write_page(structured_blocks, page_num, total_pages):
         f.write('  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">\n')
         f.write('  <meta http-equiv="Pragma" content="no-cache">\n')
         f.write('  <meta http-equiv="Expires" content="0">\n')
-        f.write('  <link rel="stylesheet" href="style.css">\n')
+        f.write(f'  <link rel="stylesheet" href="style.css?v={css_version}">\n')
         f.write('</head>\n')
         f.write('<body>\n')
         f.write('  <header class="banner">\n')
@@ -252,6 +254,7 @@ def write_page(structured_blocks, page_num, total_pages):
 
 def write_table_of_contents(structured_blocks):
     """Write a table of contents page with links to each poem."""
+    css_version = int(time.time())
     with open('poems.html', 'w', encoding='utf-8') as f:
         f.write('<!DOCTYPE html>\n')
         f.write('<html lang="en">\n')
@@ -261,7 +264,7 @@ def write_table_of_contents(structured_blocks):
         f.write('  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">\n')
         f.write('  <meta http-equiv="Pragma" content="no-cache">\n')
         f.write('  <meta http-equiv="Expires" content="0">\n')
-        f.write('  <link rel="stylesheet" href="style.css">\n')
+        f.write(f'  <link rel="stylesheet" href="style.css?v={css_version}">\n')
         f.write('</head>\n')
         f.write('<body>\n')
         f.write('  <header class="banner">\n')
