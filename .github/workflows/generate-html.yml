@@ -2,9 +2,6 @@ name: Generate and Deploy HTML
 
 on:
   push:
-    paths:
-      - poems.txt
-      - generate_html.py
   workflow_dispatch:
 
 permissions:
