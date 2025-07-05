@@ -16,7 +16,6 @@ Hey, grab a mask, dude.
 Inhaling that is bad for you.
 ===
 top: GlassyEyes.jpg[600]
-audio: GlassEyes.m4a
 I'm walking down the street reading a book about delight.
 While aiming at my feet, my eyes detect a creepy sight.
 I've passed a thousand times before but never once could see
