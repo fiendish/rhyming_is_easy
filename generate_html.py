@@ -22,14 +22,29 @@ def is_video_file(filename):
     video_exts = {'.mp4', '.webm', '.ogg', '.mov'}
     return os.path.splitext(filename)[1].lower() in video_exts
 
+def get_audio_mime_type(filename):
+    """Get the MIME type for an audio file based on its extension."""
+    ext = os.path.splitext(filename)[1].lower()
+    audio_types = {
+        '.mp3': 'audio/mpeg',
+        '.wav': 'audio/wav',
+        '.ogg': 'audio/ogg',
+        '.m4a': 'audio/mp4',
+        '.aac': 'audio/aac',
+        '.webm': 'audio/webm',
+        '.flac': 'audio/flac'
+    }
+    return audio_types.get(ext, 'audio/mpeg')
+
 def parse_poem_unit(poem_unit):
     """Parse a single poem unit and return its structured data representation."""
     lines = poem_unit.strip().split('\n')
     if not lines:
-        return {'links': [], 'media': [], 'poem_lines': [], 'uses_left': False}
+        return {'links': [], 'media': [], 'audio': [], 'poem_lines': [], 'uses_left': False}
     
     links = []
     media = []
+    audio = []
     poem_lines = []
     
     for line in lines:
@@ -38,6 +53,9 @@ def parse_poem_unit(poem_unit):
         if prefix == 'link' and len(parts) == 2:
             url = parts[1].strip()
             links.append(url)
+        elif prefix == 'audio' and len(parts) == 2:
+            audio_file = parts[1].strip()
+            audio.append(audio_file)
         elif prefix in ('top', 'left') and len(parts) == 2:
             placement = prefix
             media_items = [m.strip() for m in parts[1].split(',') if m.strip()]
@@ -53,6 +71,7 @@ def parse_poem_unit(poem_unit):
     return {
         'links': links,
         'media': media,
+        'audio': audio,
         'poem_lines': poem_lines
     }
 
@@ -99,6 +118,14 @@ def generate_unit_html(unit_data):
     # Add poem text
     if unit_data['poem_lines']:
         html += '  <pre>' + html_escape('\n'.join(unit_data['poem_lines'])) + '</pre>\n'
+    
+    # Add audio players
+    for audio_file in unit_data['audio']:
+        mime_type = get_audio_mime_type(audio_file)
+        html += f'  <audio controls preload="metadata" style="width: 100%; max-width: 400px; margin: 10px 0;">\n'
+        html += f'    <source src="audio/{audio_file}" type="{mime_type}">\n'
+        html += f'    Your browser does not support the audio element.\n'
+        html += f'  </audio>\n'
     
     return html
 
