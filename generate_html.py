@@ -91,6 +91,17 @@ def parse_poems_to_structured_data(content):
 
     return structured_blocks
 
+def generate_media_html(media_info):
+    """Generate HTML for a single media item."""
+    filename = media_info['filename']
+    width = media_info['width']
+    alt = os.path.splitext(os.path.basename(filename))[0].replace('_', ' ')
+    style = f' style="width:{width}px"' if width else ''
+    if is_video_file(filename):
+        return f'<video src="images/{filename}" controls loop{style} preload="metadata">Your browser does not support the video tag.</video>'
+    else:
+        return f'<img src="images/{filename}" alt="{alt}"{style}>'
+
 def generate_unit_html(unit_data):
     """Generate HTML for a single poem unit from structured data."""
     html = ''
@@ -99,34 +110,21 @@ def generate_unit_html(unit_data):
     for url in unit_data['links']:
         html += f'  <a href="{url}" target="_blank">{url}</a>\n'
     
-    # Add media
-    for media_group in unit_data['media']:
-        placement = media_group['placement']
-        div_class = 'image-row' if placement == 'top' else 'image-column'
-        html += f'  <div class="{div_class}">\n'
-        for media_info in media_group['items']:
-            filename = media_info['filename']
-            width = media_info['width']
-            alt = os.path.splitext(os.path.basename(filename))[0].replace('_', ' ')
-            style = f' style="width:{width}px"' if width else ''
-            if is_video_file(filename):
-                html += f'    <video src="images/{filename}" controls loop{style} preload="metadata">Your browser does not support the video tag.</video>\n'
-            else:
-                html += f'    <img src="images/{filename}" alt="{alt}"{style}>\n'
-
-        html += '  </div>\n'
+    # Group left images with poem content (only these go in the flex container)
+    has_left = any(media_group['placement'] == 'left' for media_group in unit_data['media'])
     
-    # Add poem text
+    if has_left:
+        # Left images in column
+        for media_group in unit_data['media']:
+            if media_group['placement'] == 'left':
+                html += f'  <div class="image-column">\n'
+                for media_info in media_group['items']:
+                    html += f'    {generate_media_html(media_info)}\n'
+                html += '  </div>\n'
+    
+    # Add poem text (will be positioned next to left images by .left-image class)
     if unit_data['poem_lines']:
         html += '  <pre>' + html_escape('\n'.join(unit_data['poem_lines'])) + '</pre>\n'
-    
-    # Add audio players
-    for audio_file in unit_data['audio']:
-        mime_type = get_audio_mime_type(audio_file)
-        html += f'  <audio controls preload="metadata" style="width: 100%; max-width: 400px; margin: 10px 0;">\n'
-        html += f'    <source src="audio/{audio_file}" type="{mime_type}">\n'
-        html += f'    Your browser does not support the audio element.\n'
-        html += f'  </audio>\n'
     
     return html
 
@@ -174,7 +172,33 @@ def generate_block_html(block_units, poem_id=None):
     for unit_data in block_units:
         unit_html = generate_unit_html(unit_data)
         unit_class = 'poem-unit left-image' if has_left_placement(unit_data) else 'poem-unit'
-        unit_htmls.append(f'<div class="{unit_class}">\n{unit_html}</div>')
+        
+        # Add top images before the unit container
+        top_html = ''
+        for media_group in unit_data['media']:
+            if media_group['placement'] == 'top':
+                top_html += f'  <div class="image-row">\n'
+                for media_info in media_group['items']:
+                    top_html += f'    {generate_media_html(media_info)}\n'
+                top_html += '  </div>\n'
+        
+        # Add audio players after the unit content, outside the left-image container
+        audio_html = ''
+        for audio_file in unit_data['audio']:
+            mime_type = get_audio_mime_type(audio_file)
+            audio_html += f'  <audio controls preload="metadata" style="width: 100%; max-width: 400px; margin: 10px 0;">\n'
+            audio_html += f'    <source src="audio/{audio_file}" type="{mime_type}">\n'
+            audio_html += f'    Your browser does not support the audio element.\n'
+            audio_html += f'  </audio>\n'
+        
+        full_unit_html = ''
+        if top_html:
+            full_unit_html += top_html
+        full_unit_html += f'<div class="{unit_class}">\n{unit_html}</div>'
+        if audio_html:
+            full_unit_html += f'\n{audio_html}'
+        
+        unit_htmls.append(full_unit_html)
     
     poem_id_attr = f' id="poem-{poem_id}"' if poem_id is not None else ''
     html = f'<div class="poem-block"{poem_id_attr}>\n'
