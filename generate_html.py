@@ -206,25 +206,58 @@ def generate_block_html(block_units, poem_id=None):
     html += '\n</div>'
     return html
 
+def write_html_header(f, title):
+    """Write the HTML header with common meta tags, CSS, and banner."""
+    css_version = int(time.time())
+    f.write('<!DOCTYPE html>\n')
+    f.write('<html lang="en">\n')
+    f.write('<head>\n')
+    f.write('  <meta charset="UTF-8">\n')
+    f.write(f'  <title>{title}</title>\n')
+    f.write('  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">\n')
+    f.write('  <meta http-equiv="Pragma" content="no-cache">\n')
+    f.write('  <meta http-equiv="Expires" content="0">\n')
+    f.write(f'  <link rel="stylesheet" href="style.css?v={css_version}">\n')
+    f.write('</head>\n')
+    f.write('<body>\n')
+    f.write('  <header class="banner">\n')
+    f.write('    <h1><a href="index.html" style="color: inherit; text-decoration: none;">Everyday Majestic Musings</a></h1>\n')
+    f.write('    <a href="poems.html" class="table-of-contents-link">Table of Contents</a>\n')
+    f.write('  </header>\n')
+
+def write_image_enlargement_script(f):
+    """Write the JavaScript for image enlargement functionality."""
+    f.write('  <script>\n')
+    f.write("""
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('img').forEach(function(img) {
+      img.addEventListener('click', function(e) {
+        if (img.classList.contains('enlarged-image')) {
+          img.classList.remove('enlarged-image');
+          const backdrop = document.querySelector('.enlarged-image-backdrop');
+          if (backdrop) backdrop.remove();
+        } else {
+          const backdrop = document.createElement('div');
+          backdrop.className = 'enlarged-image-backdrop';
+          backdrop.onclick = function() {
+            img.classList.remove('enlarged-image');
+            backdrop.remove();
+          };
+          document.body.appendChild(backdrop);
+          img.classList.add('enlarged-image');
+        }
+        e.stopPropagation();
+      });
+    });
+  });
+        """)
+    f.write('  </script>\n')
+
 def write_page(structured_blocks, page_num, total_pages):
     """Write a single HTML page with navigation links and 'The end.' on the last page."""
     filename = 'index.html' if page_num == 1 else f'page{page_num}.html'
-    css_version = int(time.time())
     with open(filename, 'w', encoding='utf-8') as f:
-        f.write('<!DOCTYPE html>\n')
-        f.write('<html lang="en">\n')
-        f.write('<head>\n')
-        f.write('  <meta charset="UTF-8">\n')
-        f.write('  <title>Everyday Majestic Musings</title>\n')
-        f.write('  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">\n')
-        f.write('  <meta http-equiv="Pragma" content="no-cache">\n')
-        f.write('  <meta http-equiv="Expires" content="0">\n')
-        f.write(f'  <link rel="stylesheet" href="style.css?v={css_version}">\n')
-        f.write('</head>\n')
-        f.write('<body>\n')
-        f.write('  <header class="banner">\n')
-        f.write('    <h1><a href="poems.html" style="color: inherit; text-decoration: none;">Everyday Majestic Musings</a></h1>\n')
-        f.write('  </header>\n')
+        write_html_header(f, 'Everyday Majestic Musings')
         f.write('  <main>\n')
         for i, block_units in enumerate(structured_blocks):
             poem_id = (page_num - 1) * 5 + i
@@ -248,52 +281,14 @@ def write_page(structured_blocks, page_num, total_pages):
 
         f.write('</div>\n')
         f.write('  </main>\n')
-        f.write('  <script>\n')
-        f.write("""
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('img').forEach(function(img) {
-      img.addEventListener('click', function(e) {
-        if (img.classList.contains('enlarged-image')) {
-          img.classList.remove('enlarged-image');
-          const backdrop = document.querySelector('.enlarged-image-backdrop');
-          if (backdrop) backdrop.remove();
-        } else {
-          const backdrop = document.createElement('div');
-          backdrop.className = 'enlarged-image-backdrop';
-          backdrop.onclick = function() {
-            img.classList.remove('enlarged-image');
-            backdrop.remove();
-          };
-          document.body.appendChild(backdrop);
-          img.classList.add('enlarged-image');
-        }
-        e.stopPropagation();
-      });
-    });
-  });
-        """)
-        f.write('  </script>\n')
+        write_image_enlargement_script(f)
         f.write('</body>\n')
         f.write('</html>\n')
 
 def write_table_of_contents(structured_blocks):
     """Write a table of contents page with links to each poem."""
-    css_version = int(time.time())
     with open('poems.html', 'w', encoding='utf-8') as f:
-        f.write('<!DOCTYPE html>\n')
-        f.write('<html lang="en">\n')
-        f.write('<head>\n')
-        f.write('  <meta charset="UTF-8">\n')
-        f.write('  <title>Table of Contents - Everyday Majestic Musings</title>\n')
-        f.write('  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">\n')
-        f.write('  <meta http-equiv="Pragma" content="no-cache">\n')
-        f.write('  <meta http-equiv="Expires" content="0">\n')
-        f.write(f'  <link rel="stylesheet" href="style.css?v={css_version}">\n')
-        f.write('</head>\n')
-        f.write('<body>\n')
-        f.write('  <header class="banner">\n')
-        f.write('    <h1><a href="/" style="color: inherit; text-decoration: none;">Everyday Majestic Musings</a></h1>\n')
-        f.write('  </header>\n')
+        write_html_header(f, 'Table of Contents - Everyday Majestic Musings')
         f.write('  <main>\n')
         f.write('    <h2>Table of Contents</h2>\n')
         f.write('    <ul style="line-height: 1.8; margin-bottom: 2em; list-style: none; padding-left: 0;">\n')
