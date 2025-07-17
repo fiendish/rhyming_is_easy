@@ -1,4 +1,14 @@
 ===
+left: PettingZoo.jpg
+In the museum for mostly wood art
+where the work's fragile and may fall apart
+there is a wheeled little grey metal cart
+known as the petting zoo of extra parts.
+Well, they are mostly wood, obviously.
+There are some golden bits, as you can see.
+Even the least creative attendee
+knows that brass fasteners come from a tree.
+===
 top: EasternStateShalom.jpg[600]
 left: EasternStateExerciseYard.jpg
 Between wire, brick, and stone
