@@ -215,7 +215,7 @@ def generate_block_html(block_data):
     html += '\n</div>'
     return html
 
-def write_html_header(f, title):
+def write_html_header(f, title, show_toc_link=True):
     """Write the HTML header with common meta tags, CSS, and banner."""
     css_version = int(time.time())
     f.write('<!DOCTYPE html>\n')
@@ -231,7 +231,9 @@ def write_html_header(f, title):
     f.write('<body>\n')
     f.write('  <header class="banner">\n')
     f.write('    <h1><a href="index.html" style="color: inherit; text-decoration: none;">Everyday Majestic Musings</a></h1>\n')
-    f.write('    <a href="poems.html" class="table-of-contents-link">Table of Contents</a>\n')
+    visibility_style = '' if show_toc_link else ' style="visibility: hidden;"'
+    element_tag = 'a href="poems.html"' if show_toc_link else 'div'
+    f.write(f'    <{element_tag} class="table-of-contents-link"{visibility_style}>Go to Table of Contents</{"a" if show_toc_link else "div"}>\n')
     f.write('  </header>\n')
 
 def write_image_enlargement_script(f):
@@ -296,7 +298,7 @@ def write_page(structured_blocks, page_num, total_pages):
 def write_table_of_contents(structured_blocks):
     """Write a table of contents page with links to each poem."""
     with open('poems.html', 'w', encoding='utf-8') as f:
-        write_html_header(f, 'Table of Contents - Everyday Majestic Musings')
+        write_html_header(f, 'Table of Contents - Everyday Majestic Musings', show_toc_link=False)
         f.write('  <main>\n')
         f.write('    <h2>Table of Contents</h2>\n')
         f.write('    <ul style="line-height: 1.8; margin-bottom: 2em; list-style: none; padding-left: 0;">\n')
