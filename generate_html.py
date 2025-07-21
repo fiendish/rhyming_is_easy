@@ -80,14 +80,21 @@ def parse_poems_to_structured_data(content):
     """Parse the full poems.txt content and return structured data."""
     content_blocks = [b.strip() for b in content.split('===') if b.strip()]
     structured_blocks = []
-    for block in content_blocks:
+    total_poems = len(content_blocks)
+    
+    for i, block in enumerate(content_blocks):
         units = [u.strip() for u in block.split('---') if u.strip()]
         parsed_units = []
         for u in units:
             unit_data = parse_poem_unit(u)
             parsed_units.append(unit_data)
 
-        structured_blocks.append(parsed_units)
+        # Add poem number to the block
+        block_data = {
+            'units': parsed_units,
+            'poem_number': total_poems - i
+        }
+        structured_blocks.append(block_data)
 
     return structured_blocks
 
@@ -132,9 +139,9 @@ def has_left_placement(unit_data):
     """Check if unit has any media with left placement."""
     return any(media_group['placement'] == 'left' for media_group in unit_data['media'])
 
-def get_first_poem_line(block_units):
+def get_first_poem_line(block_data):
     """Extract the first line of text from a poem block for use in table of contents."""
-    for unit_data in block_units:
+    for unit_data in block_data['units']:
         if unit_data['poem_lines']:
             # Look through all poem lines to find the first non-empty one
             for line in unit_data['poem_lines']:
@@ -145,9 +152,9 @@ def get_first_poem_line(block_units):
                     return first_line
     return "Untitled..."
 
-def get_first_image(block_units):
+def get_first_image(block_data):
     """Extract the first image filename from a poem block for thumbnails."""
-    for unit_data in block_units:
+    for unit_data in block_data['units']:
         if unit_data['media']:
             for media_group in unit_data['media']:
                 if media_group['items']:
@@ -166,10 +173,10 @@ def get_first_image(block_units):
                                 return image_filename
     return None
 
-def generate_block_html(block_units, poem_id=None):
+def generate_block_html(block_data):
     """Generate HTML for a block of poem units from structured data."""
     unit_htmls = []
-    for unit_data in block_units:
+    for unit_data in block_data['units']:
         unit_html = generate_unit_html(unit_data)
         unit_class = 'poem-unit left-image' if has_left_placement(unit_data) else 'poem-unit'
         
@@ -200,8 +207,10 @@ def generate_block_html(block_units, poem_id=None):
         
         unit_htmls.append(full_unit_html)
     
-    poem_id_attr = f' id="poem-{poem_id}"' if poem_id is not None else ''
-    html = f'<div class="poem-block"{poem_id_attr}>\n'
+    poem_number = block_data['poem_number']
+    poem_id_attr = f' id="poem-{poem_number}"'
+    poem_number_html = f'<div class="poem-number">{poem_number}</div>\n'
+    html = f'<div class="poem-block"{poem_id_attr}>\n{poem_number_html}'
     html += '\n<br>\n'.join(unit_htmls)
     html += '\n</div>'
     return html
@@ -259,9 +268,8 @@ def write_page(structured_blocks, page_num, total_pages):
     with open(filename, 'w', encoding='utf-8') as f:
         write_html_header(f, 'Everyday Majestic Musings')
         f.write('  <main>\n')
-        for i, block_units in enumerate(structured_blocks):
-            poem_id = (page_num - 1) * 5 + i
-            html_block = generate_block_html(block_units, poem_id)
+        for i, block_data in enumerate(structured_blocks):
+            html_block = generate_block_html(block_data)
             f.write(html_block + '\n    <hr>\n')
 
         # Add 'The end.' only on the last page
@@ -295,18 +303,18 @@ def write_table_of_contents(structured_blocks):
         
         poems_per_page = 5
         total_poems = len(structured_blocks)
-        for i, block_units in enumerate(structured_blocks):
+        for i, block_data in enumerate(structured_blocks):
             page_num = (i // poems_per_page) + 1
             page_file = 'index.html' if page_num == 1 else f'page{page_num}.html'
-            first_line = get_first_poem_line(block_units)
-            first_image = get_first_image(block_units)
-            poem_number = total_poems - i  # Reverse numbering so newest (first) has highest number
+            first_line = get_first_poem_line(block_data)
+            first_image = get_first_image(block_data)
+            poem_number = block_data['poem_number']
             
             if first_image:
                 thumbnail_html = f'<img src="images/{first_image}" alt="" style="max-width: 96px; max-height: 96px; margin-right: 0.5em; vertical-align: middle; border-radius: 3px; cursor: default;">'
-                f.write(f'      <li style="display: flex; align-items: center; margin-bottom: 0.5em;"><span style="font-weight: bold; min-width: 2.5em; margin-right: 0.5em;">{poem_number}.</span>{thumbnail_html}<a href="{page_file}#poem-{i}">{html_escape(first_line)}</a></li>\n')
+                f.write(f'      <li style="display: flex; align-items: center; margin-bottom: 0.5em;"><span style="font-weight: bold; min-width: 2.5em; margin-right: 0.5em;">{poem_number}.</span>{thumbnail_html}<a href="{page_file}#poem-{poem_number}">{html_escape(first_line)}</a></li>\n')
             else:
-                f.write(f'      <li style="display: flex; align-items: center; margin-bottom: 0.5em;"><span style="font-weight: bold; min-width: 2.5em; margin-right: 0.5em;">{poem_number}.</span><a href="{page_file}#poem-{i}">{html_escape(first_line)}</a></li>\n')
+                f.write(f'      <li style="display: flex; align-items: center; margin-bottom: 0.5em;"><span style="font-weight: bold; min-width: 2.5em; margin-right: 0.5em;">{poem_number}.</span><a href="{page_file}#poem-{poem_number}">{html_escape(first_line)}</a></li>\n')
         
         f.write('    </ul>\n')
         f.write('  </main>\n')

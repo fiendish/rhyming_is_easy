@@ -37,6 +37,15 @@ header.banner h1 {
   text-decoration: underline;
 }
 
+.poem-number {
+  font-size: 2em;
+  font-weight: bold;
+  color: #b8a3d2;
+  text-align: left;
+  margin-bottom: 0.2em;
+  font-family: 'Arial Black', Arial, sans-serif;
+}
+
 .poem-unit {
   display: block;
   margin-bottom: 1.5em;
