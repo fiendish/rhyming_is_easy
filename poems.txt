@@ -8,16 +8,6 @@ It tells of the car's, not the driver's position.
 And stopping your wheels needs D.O.T.'s permission.
 
 ===
-top: BrushPlugs.jpg[600]
-In the museum surrounded by glass,
-eight solid pillars for plugging your ass. (hah)
-Set upon boxes, their polished grain surfaces
-softly betray vaguely inhumane purposes.
-Gentle sloped curves with their bases cut flush,
-spiked tips observed to be shaped like a brush.
-Grind them down, maybe, then wear them with pride,
-but as they are, baby, they'll stab you inside.
-===
 left: PettingZoo.jpg
 In the museum for mostly wood art
 where the work's fragile and may fall apart
@@ -27,6 +17,16 @@ Well, they are mostly wood, obviously.
 There are some golden bits, as you can see.
 Even the least creative attendee
 knows that brass fasteners come from a tree.
+---
+top: BrushPlugs.jpg[600]
+In the museum surrounded by glass,
+eight solid pillars for plugging your ass. (hah)
+Set upon boxes, their polished grain surfaces
+softly betray vaguely inhumane purposes.
+Gentle sloped curves with their bases cut flush,
+spiked tips observed to be shaped like a brush.
+Grind them down, maybe, then wear them with pride,
+but as they are, baby, they'll stab you inside.
 ===
 top: EasternStateShalom.jpg[600]
 left: EasternStateExerciseYard.jpg
