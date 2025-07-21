@@ -27,14 +27,13 @@ header.banner h1 {
 .table-of-contents-link {
   display: block;
   color: #6b4c7a;
-  text-decoration: none;
+  text-decoration: underline;
   font-size: 1.1em;
   margin-top: 0.2em;
 }
 
 .table-of-contents-link:hover {
   color: #4b2e6a;
-  text-decoration: underline;
 }
 
 .poem-number {
