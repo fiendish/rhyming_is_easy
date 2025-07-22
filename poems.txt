@@ -1,4 +1,4 @@
-top: LIRRTicket.jpg
+top: LIRRTicket.jpg[600]
 The Long Island Rail Road from Bayside to Penn
 departs for downtown once an hour, and then
 
