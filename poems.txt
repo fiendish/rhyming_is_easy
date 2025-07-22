@@ -1,3 +1,13 @@
+left: CoffeeWaffle.jpg
+Coffee Waffle
+on a sign.
+Soft Falafel?
+Get in line!
+Fried chickpea
+with other stuff,
+bubble tea,
+and a creampuff.
+===
 top: LIRRTicket.jpg[600]
 The Long Island Rail Road from Bayside to Penn
 departs for downtown once an hour, and then
