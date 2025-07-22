@@ -2,7 +2,7 @@ top: LIRRTicket.jpg[600]
 The Long Island Rail Road from Bayside to Penn
 departs for downtown once an hour, and then
 
-it whisks you away to the heart of manhattan
+it whisks you away to the heart of Manhattan
 in long metal chains of commuter train cabins.
 
 The fare's just five dollars, a bargain for distance,
