@@ -37,6 +37,17 @@ def get_audio_mime_type(filename):
     }
     return audio_types.get(ext, 'audio/mpeg')
 
+def get_video_mime_type(filename):
+    """Get the MIME type for a video file based on its extension."""
+    ext = os.path.splitext(filename)[1].lower()
+    video_types = {
+        '.mp4': 'video/mp4',
+        '.webm': 'video/webm',
+        '.ogg': 'video/ogg',
+        '.mov': 'video/quicktime'
+    }
+    return video_types.get(ext, 'video/mp4')
+
 def parse_poem_unit(poem_unit):
     """Parse a single poem unit and return its structured data representation."""
     lines = poem_unit.strip().split('\n')
@@ -105,7 +116,8 @@ def generate_media_html(media_info):
     alt = os.path.splitext(os.path.basename(filename))[0].replace('_', ' ')
     style = f' style="width:{width}px"' if width else ''
     if is_video_file(filename):
-        return f'<video src="images/{filename}" controls loop{style} preload="metadata">Your browser does not support the video tag.</video>'
+        mime_type = get_video_mime_type(filename)
+        return f'<video src="images/{filename}" type="{mime_type}" controls loop{style} preload="metadata">Your browser does not support the video tag.</video>'
     else:
         return f'<img src="images/{filename}" alt="{alt}"{style}>'
 
