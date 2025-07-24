@@ -1,4 +1,16 @@
-top:FAO.jpg[600]
+===
+left: Foxtail.jpg
+Fluffy fuzzy prickly grass,
+filaments like fiberglass,
+summer weed along the trail,
+possibly giant foxtail.
+
+And around it may be some
+large amount of lady's thumb.
+In the crush the two hobnob,
+bottle brush with pink corncob.
+===
+top: FAO.jpg[600]
 Fun-filled twenty thousand feet:
 vibrant toys, delightful treats.
 Jellycat and Funko dolls
