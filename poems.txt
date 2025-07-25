@@ -1,4 +1,32 @@
 ===
+top: NoahsArk.jpg[400]
+Children's book "On Noah's Ark"
+by the fountain in the park
+named after our patriarch (George Washington, not Noah, lol)
+over graves without a mark.
+Come and read before it's dark.
+---
+top: PlasticTruck.jpg[400]
+Also there's a plastic truck.
+Driver probably got stuck.
+Some small kid is out of luck.
+It seems like a sitting duck.
+Might get stepped on by a schmuck.
+---
+top: UnknownSoldier.jpg[600]
+To the side's a monument,
+wall of stone that represents
+where the unknown soldiers went
+from Washington's regiments
+before he was president.
+---
+top: ParkPainter.jpg[500]
+In the back an old man's seated
+with a painting near completed.
+By our stranger he is greeted,
+"May I look on?" Thus entreated,
+the man engages, unconceited.
+===
 left: Foxtail.jpg
 Fluffy fuzzy prickly grass,
 filaments like fiberglass,
