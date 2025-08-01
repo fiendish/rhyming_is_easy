@@ -408,7 +408,7 @@ def write_atom_feed(structured_blocks):
         page_file = 'index.html' if page_num == 1 else f'page{page_num}.html'
         
         ET.SubElement(entry, 'title').text = str(poem_number)
-        ET.SubElement(entry, 'id').text = f'https://invariablyhappy.com/{page_file}#poem-{poem_number}'
+        ET.SubElement(entry, 'id').text = str(poem_number)
         # Generate fake timestamp so they appear in order: epoch + poem_number days
         ET.SubElement(entry, 'updated').text = (datetime(1970, 1, 1, tzinfo=timezone.utc) + timedelta(days=poem_number)).isoformat()
         
