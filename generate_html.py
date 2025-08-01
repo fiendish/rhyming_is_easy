@@ -5,6 +5,8 @@ import time
 from datetime import datetime, timezone, timedelta
 import xml.etree.ElementTree as ET
 
+POEMS_PER_PAGE = 5
+
 def html_escape(text):
     """Escape HTML special characters in text."""
     return (text.replace('&', '&amp;')
@@ -318,10 +320,9 @@ def write_table_of_contents(structured_blocks):
         f.write('    <h2>Table of Contents</h2>\n')
         f.write('    <ul style="line-height: 1.8; margin-bottom: 2em; list-style: none; padding-left: 0;">\n')
         
-        poems_per_page = 5
         total_poems = len(structured_blocks)
         for i, block_data in enumerate(structured_blocks):
-            page_num = (i // poems_per_page) + 1
+            page_num = (i // POEMS_PER_PAGE) + 1
             page_file = 'index.html' if page_num == 1 else f'page{page_num}.html'
             first_line = get_first_poem_line(block_data)
             first_image = get_first_image(block_data)
@@ -399,19 +400,22 @@ def write_atom_feed(structured_blocks):
     alt_link.set('href', 'https://invariablyhappy.com/')
     
     # Add entries for each poem
-    for block_data in structured_blocks:
+    for i, block_data in enumerate(structured_blocks):
         entry = ET.SubElement(feed, 'entry')
 
         poem_number = block_data['poem_number']
+        page_num = (i // POEMS_PER_PAGE) + 1
+        page_file = 'index.html' if page_num == 1 else f'page{page_num}.html'
+        
         ET.SubElement(entry, 'title').text = str(poem_number)
-        ET.SubElement(entry, 'id').text = f'https://invariablyhappy.com/#poem-{poem_number}'
+        ET.SubElement(entry, 'id').text = f'https://invariablyhappy.com/{page_file}#poem-{poem_number}'
         # Generate fake timestamp so they appear in order: epoch + poem_number days
         ET.SubElement(entry, 'updated').text = (datetime(1970, 1, 1, tzinfo=timezone.utc) + timedelta(days=poem_number)).isoformat()
         
         # Link to the poem
         link = ET.SubElement(entry, 'link')
         link.set('rel', 'alternate')
-        link.set('href', f'https://invariablyhappy.com/#poem-{poem_number}')
+        link.set('href', f'https://invariablyhappy.com/{page_file}#poem-{poem_number}')
         
         # Content
         content = ET.SubElement(entry, 'content')
@@ -436,13 +440,12 @@ def main():
         content = f.read()
 
     structured_blocks = parse_poems_to_structured_data(content)
-    poems_per_page = 5
-    total_pages = (len(structured_blocks) + poems_per_page - 1) // poems_per_page
+    total_pages = (len(structured_blocks) + POEMS_PER_PAGE - 1) // POEMS_PER_PAGE
     
     # Write the main pages
     for page_num in range(1, total_pages + 1):
-        start = (page_num - 1) * poems_per_page
-        end = start + poems_per_page
+        start = (page_num - 1) * POEMS_PER_PAGE
+        end = start + POEMS_PER_PAGE
         write_page(structured_blocks[start:end], page_num, total_pages)
     
     # Write the table of contents
