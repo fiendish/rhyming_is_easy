@@ -2,6 +2,10 @@ import os
 import sys
 import re
 import time
+from datetime import datetime, timezone, timedelta
+import xml.etree.ElementTree as ET
+
+POEMS_PER_PAGE = 5
 
 def html_escape(text):
     """Escape HTML special characters in text."""
@@ -239,6 +243,7 @@ def write_html_header(f, title, show_toc_link=True):
     f.write('  <meta http-equiv="Pragma" content="no-cache">\n')
     f.write('  <meta http-equiv="Expires" content="0">\n')
     f.write(f'  <link rel="stylesheet" href="style.css?v={css_version}">\n')
+    f.write('  <link rel="alternate" type="application/atom+xml" title="Everyday Majestic Musings" href="atom.xml">\n')
     f.write('</head>\n')
     f.write('<body>\n')
     f.write('  <header class="banner">\n')
@@ -315,10 +320,9 @@ def write_table_of_contents(structured_blocks):
         f.write('    <h2>Table of Contents</h2>\n')
         f.write('    <ul style="line-height: 1.8; margin-bottom: 2em; list-style: none; padding-left: 0;">\n')
         
-        poems_per_page = 5
         total_poems = len(structured_blocks)
         for i, block_data in enumerate(structured_blocks):
-            page_num = (i // poems_per_page) + 1
+            page_num = (i // POEMS_PER_PAGE) + 1
             page_file = 'index.html' if page_num == 1 else f'page{page_num}.html'
             first_line = get_first_poem_line(block_data)
             first_image = get_first_image(block_data)
@@ -335,6 +339,97 @@ def write_table_of_contents(structured_blocks):
         f.write('</body>\n')
         f.write('</html>\n')
 
+def generate_atom_entry_content(block_data):
+    """Generate simple HTML content for an Atom feed entry from poem block data."""
+    content_html = []
+    
+    for unit_data in block_data['units']:
+        # Add links
+        for url in unit_data['links']:
+            content_html.append(f'<p><a href="{url}">{url}</a></p>')
+        
+        # Add all images (top and left) in simple blocks
+        for media_group in unit_data['media']:
+            for media_info in media_group['items']:
+                filename = media_info['filename']
+                width = media_info['width']
+                
+                # Left images get 280px width (matching original CSS), top images use specified width
+                if media_group['placement'] == 'left' and not width:
+                    style = ' style="width:280px"'
+                elif width:
+                    style = f' style="width:{width}px"'
+                else:
+                    style = ''
+                    
+                if is_video_file(filename):
+                    mime_type = get_video_mime_type(filename)
+                    content_html.append(f'<p><video src="https://invariablyhappy.com/images/{filename}" type="{mime_type}" controls preload="metadata"{style}>Your browser does not support the video tag.</video></p>')
+                else:
+                    content_html.append(f'<p><img src="https://invariablyhappy.com/images/{filename}" alt="{os.path.splitext(filename)[0]}"{style}></p>')
+        
+        # Add poem text
+        if unit_data['poem_lines']:
+            poem_text = html_escape('\n'.join(unit_data['poem_lines']))
+            content_html.append(f'<pre>{poem_text}</pre>')
+        
+        # Add audio
+        for audio_file in unit_data['audio']:
+            mime_type = get_audio_mime_type(audio_file)
+            content_html.append(f'<p><audio controls preload="metadata"><source src="https://invariablyhappy.com/audio/{audio_file}" type="{mime_type}">Your browser does not support the audio element.</audio></p>')
+    
+    return '\n'.join(content_html)
+
+def write_atom_feed(structured_blocks):
+    """Write an Atom 1.0 feed for all poems."""
+    feed = ET.Element('feed')
+    feed.set('xmlns', 'http://www.w3.org/2005/Atom')
+    ET.SubElement(feed, 'title').text = 'Everyday Majestic Musings'
+    ET.SubElement(feed, 'id').text = 'https://invariablyhappy.com/'
+    ET.SubElement(feed, 'updated').text = datetime.now(timezone.utc).isoformat()
+
+    author = ET.SubElement(feed, 'author')
+    ET.SubElement(author, 'name').text = 'Avi'
+
+    self_link = ET.SubElement(feed, 'link')
+    self_link.set('rel', 'self')
+    self_link.set('href', 'https://invariablyhappy.com/atom.xml')
+
+    alt_link = ET.SubElement(feed, 'link')
+    alt_link.set('rel', 'alternate')
+    alt_link.set('href', 'https://invariablyhappy.com/')
+    
+    # Add entries for each poem
+    for i, block_data in enumerate(structured_blocks):
+        entry = ET.SubElement(feed, 'entry')
+
+        poem_number = block_data['poem_number']
+        page_num = (i // POEMS_PER_PAGE) + 1
+        page_file = 'index.html' if page_num == 1 else f'page{page_num}.html'
+        
+        ET.SubElement(entry, 'title').text = str(poem_number)
+        ET.SubElement(entry, 'id').text = str(poem_number)
+        # Generate fake timestamp so they appear in order: epoch + poem_number days
+        ET.SubElement(entry, 'updated').text = (datetime(1970, 1, 1, tzinfo=timezone.utc) + timedelta(days=poem_number)).isoformat()
+        
+        # Link to the poem
+        link = ET.SubElement(entry, 'link')
+        link.set('rel', 'alternate')
+        link.set('href', f'https://invariablyhappy.com/{page_file}#poem-{poem_number}')
+        
+        # Content
+        content = ET.SubElement(entry, 'content')
+        content.set('type', 'html')
+        content.text = generate_atom_entry_content(block_data)
+    
+    # Write to file with XML declaration
+    tree = ET.ElementTree(feed)
+    ET.indent(tree, space="  ", level=0)
+    
+    with open('atom.xml', 'wb') as f:
+        f.write(b'<?xml version="1.0" encoding="utf-8"?>\n')
+        tree.write(f, encoding='utf-8', xml_declaration=False)
+
 def main():
     """Main entry point: read poems.txt, parse, and output paginated HTML pages."""
     if len(sys.argv) < 2:
@@ -345,17 +440,19 @@ def main():
         content = f.read()
 
     structured_blocks = parse_poems_to_structured_data(content)
-    poems_per_page = 5
-    total_pages = (len(structured_blocks) + poems_per_page - 1) // poems_per_page
+    total_pages = (len(structured_blocks) + POEMS_PER_PAGE - 1) // POEMS_PER_PAGE
     
     # Write the main pages
     for page_num in range(1, total_pages + 1):
-        start = (page_num - 1) * poems_per_page
-        end = start + poems_per_page
+        start = (page_num - 1) * POEMS_PER_PAGE
+        end = start + POEMS_PER_PAGE
         write_page(structured_blocks[start:end], page_num, total_pages)
     
     # Write the table of contents
     write_table_of_contents(structured_blocks)
+    
+    # Write the Atom feed
+    write_atom_feed(structured_blocks)
 
 if __name__ == '__main__':
     main()
