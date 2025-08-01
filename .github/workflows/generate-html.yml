@@ -29,7 +29,7 @@ jobs:
       - name: Prepare site files
         run: |
           mkdir -p _site
-          find . -maxdepth 1 -type f \( -name "*.html" -o -name "*.css" \) -exec cp {} _site/ \;
+          find . -maxdepth 1 -type f \( -name "*.html" -o -name "*.css" -o -name "*.xml" \) -exec cp {} _site/ \;
           find . -maxdepth 1 -type d ! -name "." ! -name ".git" ! -name ".github" ! -name "_site" -exec cp -r {} _site/ \;
 
       - name: Upload artifact
