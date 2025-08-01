@@ -307,7 +307,7 @@ def write_page(structured_blocks, page_num, total_pages):
             f.write(f'<a href="{next_file}">Next &raquo;</a>')
 
         f.write('</div>\n')
-        f.write('<div style="text-align:center;margin:1em 0;">\n')
+        f.write('<div style="text-align:center;margin:2em 0 1em 0;">\n')
         f.write('<a href="atom.xml" style="color: #6b4c7a; text-decoration: none; font-size: 0.9em;">\n')
         f.write('<img src="images/Feed-icon.svg" alt="Feed icon" class="feed-icon" style="width: 16px; height: 16px; margin-right: 0.3em; vertical-align: middle;">\n')
         f.write('Subscribe via Atom</a>\n')
