@@ -3,13 +3,11 @@ body {
   font-family: Georgia, 'Times New Roman', serif;
   color: #222;
   margin: 0;
-  padding: 0 5vw 5vw 5vw;
+  padding: 0;
 }
 
 header.banner {
-  width: 100vw;
-  margin-left: calc(-1 * 5vw);
-  margin-right: calc(-1 * 5vw);
+  width: 100%;
   background: linear-gradient(90deg, #e6d6f7 0%, #f3eaff 100%);
   padding: 1.5em 5vw 2em 5vw;
   box-sizing: border-box;
@@ -127,4 +125,8 @@ pre {
   top: 0; left: 0; width: 100vw; height: 100vh;
   background: rgba(0,0,0,0.5);
   z-index: 999;
+}
+
+main {
+  padding: 0 5vw 5vw 5vw;
 }
