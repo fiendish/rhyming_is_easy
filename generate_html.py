@@ -123,7 +123,7 @@ def generate_media_html(media_info):
         mime_type = get_video_mime_type(filename)
         return f'<video src="images/{filename}" type="{mime_type}" controls loop{style} preload="metadata">Your browser does not support the video tag.</video>'
     else:
-        return f'<img src="images/{filename}" alt="{alt}"{style}>'
+        return f'<img src="images/{filename}" alt="{alt}" class="poem-image"{style}>'
 
 def generate_unit_html(unit_data):
     """Generate HTML for a single poem unit from structured data."""
@@ -247,7 +247,7 @@ def write_html_header(f, title, show_toc_link=True):
     f.write('</head>\n')
     f.write('<body>\n')
     f.write('  <header class="banner">\n')
-    f.write('    <h1><a href="index.html" style="color: inherit; text-decoration: none;">Everyday Majestic Musings</a></h1>\n')
+    f.write('    <h1><a href="/" style="color: inherit; text-decoration: none;">Everyday Majestic Musings</a></h1>\n')
     visibility_style = '' if show_toc_link else ' style="visibility: hidden;"'
     element_tag = 'a href="poems.html"' if show_toc_link else 'div'
     f.write(f'    <{element_tag} class="table-of-contents-link"{visibility_style}>Go to Table of Contents</{"a" if show_toc_link else "div"}>\n')
@@ -258,7 +258,7 @@ def write_image_enlargement_script(f):
     f.write('  <script>\n')
     f.write("""
   document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('img').forEach(function(img) {
+    document.querySelectorAll('.poem-image').forEach(function(img) {
       img.addEventListener('click', function(e) {
         if (img.classList.contains('enlarged-image')) {
           img.classList.remove('enlarged-image');
@@ -306,6 +306,11 @@ def write_page(structured_blocks, page_num, total_pages):
             next_file = f'page{page_num+1}.html'
             f.write(f'<a href="{next_file}">Next &raquo;</a>')
 
+        f.write('</div>\n')
+        f.write('<div style="text-align:center;margin:1em 0;">\n')
+        f.write('<a href="atom.xml" style="color: #6b4c7a; text-decoration: none; font-size: 0.9em;">\n')
+        f.write('<img src="images/Feed-icon.svg" alt="Feed icon" class="feed-icon" style="width: 16px; height: 16px; margin-right: 0.3em; vertical-align: middle;">\n')
+        f.write('Subscribe via Atom</a>\n')
         f.write('</div>\n')
         f.write('  </main>\n')
         write_image_enlargement_script(f)
