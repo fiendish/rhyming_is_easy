@@ -9,7 +9,7 @@ body {
 header.banner {
   width: 100%;
   background: linear-gradient(90deg, #e6d6f7 0%, #f3eaff 100%);
-  padding: 1.5em 5vw 2em 5vw;
+  padding: 1.5em 3vw 2em 3vw;
   box-sizing: border-box;
   margin-bottom: 2.5em;
 }
