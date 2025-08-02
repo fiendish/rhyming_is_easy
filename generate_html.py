@@ -254,10 +254,11 @@ def write_html_header(f, title, show_toc_link=True):
     f.write('  </header>\n')
 
 def write_image_enlargement_script(f):
-    """Write the JavaScript for image enlargement functionality."""
+    """Write the JavaScript for image enlargement functionality and overflow indicators."""
     f.write('  <script>\n')
     f.write("""
   document.addEventListener('DOMContentLoaded', function() {
+    // Image enlargement functionality
     document.querySelectorAll('.poem-image').forEach(function(img) {
       img.addEventListener('click', function(e) {
         if (img.classList.contains('enlarged-image')) {
@@ -275,6 +276,73 @@ def write_image_enlargement_script(f):
           img.classList.add('enlarged-image');
         }
         e.stopPropagation();
+      });
+    });
+
+    // Overflow indicator functionality
+    function updateOverflowIndicators() {
+      document.querySelectorAll('.poem-unit').forEach(function(unit) {
+        const pre = unit.querySelector('pre');
+        if (!pre) return;
+        
+        // Get or create indicators
+        let rightIndicator = unit.querySelector('.overflow-indicator-right');
+        let leftIndicator = unit.querySelector('.overflow-indicator-left');
+        
+        if (!rightIndicator) {
+          rightIndicator = document.createElement('div');
+          rightIndicator.className = 'overflow-indicator-right';
+          unit.appendChild(rightIndicator);
+        }
+        
+        if (!leftIndicator) {
+          leftIndicator = document.createElement('div');
+          leftIndicator.className = 'overflow-indicator-left';
+          unit.appendChild(leftIndicator);
+        }
+        
+        // Check if content overflows horizontally
+        const hasOverflow = pre.scrollWidth > pre.clientWidth;
+        const scrollLeft = pre.scrollLeft;
+        const maxScrollLeft = pre.scrollWidth - pre.clientWidth;
+        
+        if (hasOverflow) {
+          // Position indicators to align with the pre element
+          const preRect = pre.getBoundingClientRect();
+          const unitRect = unit.getBoundingClientRect();
+          const top = (preRect.top - unitRect.top) + 'px';
+          const height = preRect.height + 'px';
+          
+          rightIndicator.style.top = top;
+          rightIndicator.style.height = height;
+          leftIndicator.style.top = top;
+          leftIndicator.style.height = height;
+          
+          // Show right indicator if not scrolled all the way right
+          const showRight = scrollLeft < maxScrollLeft - 1;
+          rightIndicator.style.display = showRight ? 'block' : 'none';
+          
+          // Show left indicator if scrolled away from the left
+          const showLeft = scrollLeft > 1;
+          leftIndicator.style.display = showLeft ? 'block' : 'none';
+          
+        } else {
+          rightIndicator.style.display = 'none';
+          leftIndicator.style.display = 'none';
+        }
+      });
+    }
+
+    // Update indicators on load and resize
+    updateOverflowIndicators();
+    window.addEventListener('resize', updateOverflowIndicators);
+    
+    // Update indicators when scrolling horizontally
+    document.querySelectorAll('pre').forEach(function(pre) {
+      pre.addEventListener('scroll', function() {
+        // Update indicator visibility based on scroll position
+        updateOverflowIndicators();
+        
       });
     });
   });
