@@ -140,7 +140,7 @@ def generate_unit_html(unit_data):
         # Left images in column
         for media_group in unit_data['media']:
             if media_group['placement'] == 'left':
-                html += f'  <div class="image-column">\n'
+                html += '  <div class="image-column">\n'
                 for media_info in media_group['items']:
                     html += f'    {generate_media_html(media_info)}\n'
                 html += '  </div>\n'
@@ -200,7 +200,7 @@ def generate_block_html(block_data):
         top_html = ''
         for media_group in unit_data['media']:
             if media_group['placement'] == 'top':
-                top_html += f'  <div class="image-row">\n'
+                top_html += '  <div class="image-row">\n'
                 for media_info in media_group['items']:
                     top_html += f'    {generate_media_html(media_info)}\n'
                 top_html += '  </div>\n'
@@ -209,10 +209,10 @@ def generate_block_html(block_data):
         audio_html = ''
         for audio_file in unit_data['audio']:
             mime_type = get_audio_mime_type(audio_file)
-            audio_html += f'  <audio controls preload="metadata" style="width: 100%; max-width: 400px; margin: 10px 0;">\n'
+            audio_html += '  <audio controls preload="metadata" style="width: 100%; max-width: 400px; margin: 10px 0;">\n'
             audio_html += f'    <source src="audio/{audio_file}" type="{mime_type}">\n'
-            audio_html += f'    Your browser does not support the audio element.\n'
-            audio_html += f'  </audio>\n'
+            audio_html += '    Your browser does not support the audio element.\n'
+            audio_html += '  </audio>\n'
         
         full_unit_html = ''
         if top_html:
@@ -324,8 +324,7 @@ def write_table_of_contents(structured_blocks):
         f.write('  <main>\n')
         f.write('    <h2>Table of Contents</h2>\n')
         f.write('    <ul style="line-height: 1.8; margin-bottom: 2em; list-style: none; padding-left: 0;">\n')
-        
-        total_poems = len(structured_blocks)
+
         for i, block_data in enumerate(structured_blocks):
             page_num = (i // POEMS_PER_PAGE) + 1
             page_file = 'index.html' if page_num == 1 else f'page{page_num}.html'
