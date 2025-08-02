@@ -98,6 +98,25 @@ pre {
   font-size: 1.2em;
   line-height: 1.4;
   font-family: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+pre::-webkit-scrollbar {
+  height: 6px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: rgba(180, 163, 210, 0.1);
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #b8a3d2;
+  border-radius: 3px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: #9d82bf;
 }
 
 .poem-image {
