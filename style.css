@@ -103,6 +103,7 @@ pre {
   position: relative;
 }
 
+
 .poem-unit {
   position: relative;
 }
@@ -110,47 +111,71 @@ pre {
 .overflow-indicator-right {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 20px;
-  background: linear-gradient(to left, #9d82bf, rgba(157, 130, 191, 0.3), transparent);
+  right: -16px;
+  width: 32px;
   opacity: 0.8;
   pointer-events: none;
   z-index: 10;
   display: none;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 18px;
+  color: #8b6bb1;
+  overflow: hidden;
 }
 
-.overflow-indicator-right::after {
-  content: '›';
+.overflow-indicator-right::before {
+  content: '>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>';
+  white-space: pre;
   position: absolute;
-  right: 2px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #9d82bf;
-  font-size: 16px;
-  font-weight: bold;
+  right: -4px;
+  top: 0;
+  height: 100%;
+  width: 12px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 18px;
+  color: #8b6bb1;
+  background: rgba(249, 249, 246, 1);
+  transform: scaleX(1.3);
+  transform-origin: right center;
 }
 
 .overflow-indicator-left {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 20px;
-  background: linear-gradient(to right, #9d82bf, rgba(157, 130, 191, 0.3), transparent);
+  left: -16px;
+  width: 32px;
   opacity: 0.8;
   pointer-events: none;
   z-index: 10;
   display: none;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 18px;
+  color: #8b6bb1;
+  overflow: hidden;
 }
 
-.overflow-indicator-left::after {
-  content: '‹';
+.overflow-indicator-left::before {
+  content: '<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A<\A';
+  white-space: pre;
   position: absolute;
-  left: 2px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #9d82bf;
-  font-size: 16px;
-  font-weight: bold;
+  left: -4px;
+  top: 0;
+  height: 100%;
+  width: 12px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 18px;
+  color: #8b6bb1;
+  background: rgba(249, 249, 246, 1);
+  transform: scaleX(1.3);
+  transform-origin: left center;
 }
 
 .poem-image {

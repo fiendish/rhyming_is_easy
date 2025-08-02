@@ -319,10 +319,13 @@ def write_image_enlargement_script(f):
           leftIndicator.style.height = height;
           
           // Show right indicator if not scrolled all the way right
-          rightIndicator.style.display = (scrollLeft < maxScrollLeft - 1) ? 'block' : 'none';
+          const showRight = scrollLeft < maxScrollLeft - 1;
+          rightIndicator.style.display = showRight ? 'block' : 'none';
           
           // Show left indicator if scrolled away from the left
-          leftIndicator.style.display = (scrollLeft > 1) ? 'block' : 'none';
+          const showLeft = scrollLeft > 1;
+          leftIndicator.style.display = showLeft ? 'block' : 'none';
+          
         } else {
           rightIndicator.style.display = 'none';
           leftIndicator.style.display = 'none';
