@@ -103,6 +103,10 @@ pre {
   position: relative;
 }
 
+pre.small-text {
+  font-size: 1.0em;
+}
+
 
 .poem-unit {
   position: relative;

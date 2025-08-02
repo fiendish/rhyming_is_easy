@@ -147,7 +147,10 @@ def generate_unit_html(unit_data):
     
     # Add poem text (will be positioned next to left images by .left-image class)
     if unit_data['poem_lines']:
-        html += '  <pre>' + html_escape('\n'.join(unit_data['poem_lines'])) + '</pre>\n'
+        # Check if any line is longer than 53 characters
+        max_line_length = max(len(line) for line in unit_data['poem_lines']) if unit_data['poem_lines'] else 0
+        pre_class = ' class="small-text"' if max_line_length > 53 else ''
+        html += f'  <pre{pre_class}>' + html_escape('\n'.join(unit_data['poem_lines'])) + '</pre>\n'
     
     return html
 
