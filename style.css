@@ -100,23 +100,57 @@ pre {
   font-family: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
   overflow-x: auto;
   max-width: 100%;
+  position: relative;
 }
 
-pre::-webkit-scrollbar {
-  height: 6px;
+.poem-unit {
+  position: relative;
 }
 
-pre::-webkit-scrollbar-track {
-  background: rgba(180, 163, 210, 0.1);
+.overflow-indicator-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  background: linear-gradient(to left, #9d82bf, rgba(157, 130, 191, 0.3), transparent);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 10;
+  display: none;
 }
 
-pre::-webkit-scrollbar-thumb {
-  background: #b8a3d2;
-  border-radius: 3px;
+.overflow-indicator-right::after {
+  content: '›';
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9d82bf;
+  font-size: 16px;
+  font-weight: bold;
 }
 
-pre::-webkit-scrollbar-thumb:hover {
-  background: #9d82bf;
+.overflow-indicator-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  background: linear-gradient(to right, #9d82bf, rgba(157, 130, 191, 0.3), transparent);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 10;
+  display: none;
+}
+
+.overflow-indicator-left::after {
+  content: '‹';
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9d82bf;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .poem-image {
