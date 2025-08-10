@@ -129,10 +129,6 @@ def generate_unit_html(unit_data):
     """Generate HTML for a single poem unit from structured data."""
     html = ''
     
-    # Add links
-    for url in unit_data['links']:
-        html += f'  <a href="{url}" target="_blank">{url}</a>\n'
-    
     # Group left images with poem content (only these go in the flex container)
     has_left = any(media_group['placement'] == 'left' for media_group in unit_data['media'])
     
@@ -145,12 +141,24 @@ def generate_unit_html(unit_data):
                     html += f'    {generate_media_html(media_info)}\n'
                 html += '  </div>\n'
     
-    # Add poem text (will be positioned next to left images by .left-image class)
+    # Create a text container for links and poem content
+    text_content = ''
+    for url in unit_data['links']:
+        text_content += f'    <a href="{url}" target="_blank">{url}</a>\n'
+    
+    if unit_data['links'] and unit_data['poem_lines']:
+        text_content += '    <br><br>\n'
+    
     if unit_data['poem_lines']:
         # Check if any line is longer than 53 characters
         max_line_length = max(len(line) for line in unit_data['poem_lines']) if unit_data['poem_lines'] else 0
         pre_class = ' class="small-text"' if max_line_length > 53 else ''
-        html += f'  <pre{pre_class}>' + html_escape('\n'.join(unit_data['poem_lines'])) + '</pre>\n'
+        text_content += f'    <pre{pre_class}>' + html_escape('\n'.join(unit_data['poem_lines'])) + '</pre>\n'
+    
+    if text_content:
+        html += '  <div class="text-content">\n'
+        html += text_content
+        html += '  </div>\n'
     
     return html
 
