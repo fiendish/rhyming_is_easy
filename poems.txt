@@ -1,5 +1,13 @@
 left: 2039.png
 link: https://en.wikipedia.org/wiki/Year_2038_problem
+
+(I think this is my first unrhythmic entry so far.)
+(It doesn't flow well, but, I promise it's a poem.)
+(Or at least it's somewhat interesting line-lengthwise.)
+(All the lines, including these, have 13 syllables.)
+(And, clearly, 13 is a bad number for cadence.)
+(11 would have worked, but where's the challenge in that?)
+
 Old friend has an RSS reader he wrote himself
 that he uses for feeds instead of one off the shelf.
 Apparently my choice of dates is problematic;
@@ -12,11 +20,6 @@ that many, so, what if, instead, I change all the dates?
 If I pick a future start, the source code clearly states
 that would work. But, "no," he says, "fixing code's my concern."
 But what if, like Joker, I want to watch the world burn?
-
-(I think this is my first unrhythmic entry so far.)
-(It sounds funny, but, I promise this is a poem.)
-(All lines, including these three, are 13 syllables.)
-(But not this one. Lol.)
 ===
 left: PorkBelly.jpg
 link: https://www.fdrseamarket.com/
