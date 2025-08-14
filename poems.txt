@@ -1,6 +1,17 @@
+left: Mushrooms.jpg
+Dainty mushrooms keep growing in my sage.
+Thin stalks come of age, rampage, wage war across a soiled stage.
+I pull them out but they just...come right back.
+Baby umbrellas bushwhack, toxic non-snacks counter-attack.
+Each day I spot more and pluck them gently.
+Consequently they rise, intently, but placed differently.
+Movement makes me think they spawn from below.
+Tendrils grow, burrow, first slow then whoa, to fruit a white chapeau.
+Maybe I should water the planter less?
+I guess, if pressed, I should suppress stress, obsess less, and assess.
+===
 left: 2039.png
 link: https://en.wikipedia.org/wiki/Year_2038_problem
-
 Old friend has a feed reader he wrote himself
 that he runs to read these, not one off the shelf.
 He says that my choice of dates is problematic;
