@@ -1,28 +1,6 @@
 left: 2039.png
 link: https://en.wikipedia.org/wiki/Year_2038_problem
 
-(I think this is my first unrhythmic entry so far.)
-(It doesn't flow well, but, I promise it's a poem.)
-(Or at least it's somewhat interesting line-lengthwise.)
-(All the lines, including these, have 13 syllables.)
-(And, clearly, 13 is a bad number for cadence.)
-(11 would have worked, but where's the challenge in that?)
-
-Old friend has an RSS reader he wrote himself
-that he uses for feeds instead of one off the shelf.
-Apparently my choice of dates is problematic;
-"the unix epoch plus `i` days", too acrobatic.
-No notifications appear for posts in the past,
-which means never sending updates until I've amassed
-a series of twenty thousand poems on my site.
-But without cheating or automation I can't write
-that many, so, what if, instead, I change all the dates?
-If I pick a future start, the source code clearly states
-that would work. But, "no," he says, "fixing code's my concern."
-But what if, like Joker, I want to watch the world burn?
-
-(Ok, ok, now once again but with rhythm.)
-
 Old friend has a feed reader he wrote himself
 that he runs to read these, not one off the shelf.
 He says that my choice of dates is problematic;
