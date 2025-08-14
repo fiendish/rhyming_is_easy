@@ -1,18 +1,33 @@
+left: Mushrooms.jpg
+Dainty mushrooms keep growing in my sage.
+Slim stalks come of age, rampage, wage war across a soiled stage.
+
+I pull them out but they just...come right back.
+Baby umbrellas bushwhack, toxic non-snacks counter-attack.
+
+Each day I spot more and pluck them gently.
+Consequently they rise, intently, but placed differently.
+
+Movement makes me think they spawn from below.
+Tendrils grow, burrow, first slow then whoa, to fruit a white chapeau.
+
+Maybe I should water the planter less?
+I guess, if pressed, I should decompress, suppress stress, and assess.
+===
 left: 2039.png
 link: https://en.wikipedia.org/wiki/Year_2038_problem
-
 Old friend has a feed reader he wrote himself
 that he runs to read these, not one off the shelf.
 He says that my choice of dates is problematic;
 "unix epoch plus `i` days", too acrobatic.
 He doesn't get signals for posts in the past,
 so no entry updates until I've amassed
-a series of poems a thousand times twenty,
-but just automation could get to that many.
-So, what if, instead, I change the dating scheme
+a series of poems a thousand times twenty.
+But only by cheating could I reach that many,
+so, what if, instead, I change the dating scheme
 to be in the future but with the same theme?
 It certainly works, but, he laughs with concern,
-"Avi, I think you want to watch the world burn."
+"That plan sounds like you want to watch the world burn."
 ===
 left: PorkBelly.jpg
 link: https://www.fdrseamarket.com/
