@@ -1,6 +1,21 @@
+left: 2039.png
+link: https://en.wikipedia.org/wiki/Year_2038_problem
+
+Old friend has a feed reader he wrote himself
+that he runs to read these, not one off the shelf.
+He says that my choice of dates is problematic;
+"unix epoch plus `i` days", too acrobatic.
+He doesn't get signals for posts in the past,
+so no entry updates until I've amassed
+a series of poems a thousand times twenty,
+but just automation could get to that many.
+So, what if, instead, I change the dating scheme
+to be in the future but with the same theme?
+It certainly works, but, he laughs with concern,
+"Avi, I think you want to watch the world burn."
+===
 left: PorkBelly.jpg
 link: https://www.fdrseamarket.com/
-
 At seamarket there is a stall
 I visit every time.
 The woman sells this jerkied pork
