@@ -1,6 +1,22 @@
+left: 2039.png
+link: https://en.wikipedia.org/wiki/Year_2038_problem
+Old friend has an RSS reader he wrote himself
+that he uses for feeds instead of one off the shelf.
+Apparently my choice of dates is problematic;
+"the unix epoch plus `i` days" too enigmatic.
+No notifications appear for posts in the past,
+which means never sending updates until I've amassed
+a series of twenty thousand poems on my site.
+But without cheating or automation I can't write
+that many, so, what if, instead, I change all the dates?
+If I pick a future start, the source code clearly states
+that would work. But, "no," he says, "fixing code's my concern."
+But what if, like Joker, I want to watch the world burn?
+
+(it sounds funny, but, if you check, each line is 13 syllables)
+===
 left: PorkBelly.jpg
 link: https://www.fdrseamarket.com/
-
 At seamarket there is a stall
 I visit every time.
 The woman sells this jerkied pork
