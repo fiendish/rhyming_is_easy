@@ -1,3 +1,11 @@
+top: BatCat.jpg[300]
+Little man,
+the bat cat,
+sitting on
+a flat mat.
+With your vacant stare.
+Head is filled with air.
+===
 left: UsedToLove.jpg
 "I used to love your wife," it says.
 Why my wife, not your own?
