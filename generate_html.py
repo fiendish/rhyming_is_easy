@@ -153,7 +153,9 @@ def generate_unit_html(unit_data):
         # Check if any line is longer than 53 characters
         max_line_length = max(len(line) for line in unit_data['poem_lines']) if unit_data['poem_lines'] else 0
         pre_class = ' class="small-text"' if max_line_length > 53 else ''
-        text_content += f'    <pre{pre_class}>' + html_escape('\n'.join(unit_data['poem_lines'])) + '</pre>\n'
+        escaped_text = html_escape('\n'.join(unit_data['poem_lines']))
+        escaped_text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', escaped_text)
+        text_content += f'    <pre{pre_class}>' + escaped_text + '</pre>\n'
     
     if text_content:
         html += '  <div class="text-content">\n'
@@ -460,6 +462,7 @@ def generate_atom_entry_content(block_data):
         # Add poem text
         if unit_data['poem_lines']:
             poem_text = html_escape('\n'.join(unit_data['poem_lines']))
+            poem_text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', poem_text)
             content_html.append(f'<pre>{poem_text}</pre>')
         
         # Add audio
