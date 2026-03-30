@@ -1,3 +1,22 @@
+top: Coffee_cream_cup.jpg[145], Flowers_in_the_sand.jpg[115], Palms_lined_up.jpg[125], Marvin_cloned.jpg[285]
+top: Electric_gate.jpg[400], Speefy_license_plate.jpg[280]
+left: Rainbow_sunset.jpg, Bare_legs.jpg, Capistrano_place.jpg
+Coffee, cream, a plastic cup,
+
+rainbow sunset, palms lined up,
+
+flowers growing in the sand,
+
+bare legs showing, getting tanned,
+
+hearts on the electric gate,
+
+funny SPEEFY license plate,
+
+Marvin cloned from outer space,
+
+stay on Capistrano Place.
+===
 top: ShootingStars.jpg[450]
 I'm running home at night. The cars
 all shine their lights like shooting stars.
