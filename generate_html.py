@@ -155,6 +155,7 @@ def generate_unit_html(unit_data):
         pre_class = ' class="small-text"' if max_line_length > 53 else ''
         escaped_text = html_escape('\n'.join(unit_data['poem_lines']))
         escaped_text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', escaped_text)
+        escaped_text = re.sub(r'\n\n', '</pre><div class="blank-line"></div><pre' + pre_class + '>', escaped_text)
         text_content += f'    <pre{pre_class}>' + escaped_text + '</pre>\n'
     
     if text_content:
