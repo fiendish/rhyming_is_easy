@@ -1,3 +1,14 @@
+top: frog_and_swan.jpg[200], napoleon_crossing_alps.jpg[200]
+A frog rides a swan in a brown bicorne hat.
+The frog's in the hat, not the swan.
+By which I mean that the frog's wearing the hat.
+The swan has no hat to put on.
+
+It dangles its toes. The frog, not the swan.
+The swan's toes are hidden. Who knows if they're gone.
+Swim the lake of St-Bernard, Col du Grand.
+Cross the kelps, First Consul Tadpoleon.
+===
 top: Coffee_cream_cup.jpg[145], Flowers_in_the_sand.jpg[115], Palms_lined_up.jpg[125], Marvin_cloned.jpg[285]
 top: Electric_gate.jpg[400], Speefy_license_plate.jpg[280]
 left: Rainbow_sunset.jpg, Bare_legs.jpg, Capistrano_place.jpg
