@@ -1,3 +1,11 @@
+left: PinkPuffs.jpg
+Pink puffs proliferate.
+Boughs bend beneath their weight.
+Blossoms bloom to captivate
+buzzing bees that circulate
+and congregate and pollinate
+to help the cherries propagate.
+===
 top: OnceUponAPaintedTime.jpg[300], LovePark.jpg[300], 
 top: ShoulderToShoulderInSolidarity.jpg[150], TiesThatBind.jpg[150], MishmashMesh.jpg[300]
 Once upon a painted time, in a place known for its giant hearts,
