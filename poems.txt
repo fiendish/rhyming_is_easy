@@ -1,3 +1,14 @@
+top: OnceUponAPaintedTime.jpg[300], LovePark.jpg[300], 
+top: ShoulderToShoulderInSolidarity.jpg[150], TiesThatBind.jpg[150], MishmashMesh.jpg[300]
+Once upon a painted time, in a place known for its giant hearts,
+where the houses stand shoulder to shoulder in solidarity,
+proud of their colors, proud of each other, proud to be defiant parts
+of the storied grid of bricks that, planned, older and older, wall this rare city
+where a mishmash mesh of lights on lines
+crisscross tightly aligned lanes
+like ties that bind and intertwine
+to bond with brother-loving chains.
+===
 top: frog_and_swan.jpg[200], napoleon_crossing_alps.jpg[200]
 A frog rides a swan in a brown bicorne hat.
 The frog's in the hat, not the swan.
