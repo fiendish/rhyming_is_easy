@@ -1,3 +1,24 @@
+top: CatLetter1.jpg[100], CatLetter2.jpg[100], CatLetter3.jpg[100], CatLetter0.jpg[50]
+top: CatLetter4.jpg[360]
+All day lain still in relaxed dream,
+the window sill, the gold sunbeam,
+the dad and daughter passing by
+who catch his barely-opened eye,
+the twitch, the chirp, the blink, the yawn,
+the big stretch, toes like little prawns,
+to sit up squinting at the street,
+as people pass in summer's heat.
+
+And every day the little cat sits down to write a letter.
+And every day he gets one back becomes a little better.
+
+"The sun today," with pen he writes,
+"came in the window warm and bright
+and bathed my fur with glowing light.
+I think I'll sleep quite well tonight."
+
+And now he waits for your reply, dear niece.
+===
 top: Chirps.jpg[400]
 This bird chirps. And that bird chirps.
 What do you think they chirp about?
