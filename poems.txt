@@ -1,3 +1,36 @@
+left: AmberLanterns.mp4
+Sitting sideways going forward northward on the train,
+waiting, watching platforms pass,
+ensconced in plastic, steel, and glass,
+two passengers in cabin class,
+not underclass, who under-pass
+paths slowly cast past low landmass,
+at last borne fast through hewn terrain, arriving soon to new domain.
+
+And as they surf the dark
+they catch a splash of light,
+a rhythmic pulsing spark,
+like capturing a sprite.
+
+Amber lanterns fly past, flashing
+in the tunnels, faeries dashing
+pole to pole, like fireflies
+trapped in steel, they hypnotize
+captive souls, they captivate
+boxed-in riders, congregate
+in fleeting dance, they pass the day
+in shadow, then, they flit away.
+
+[Amber lanterns fly past,]
+[flashing in the tunnels,]
+[faeries dashing pole to pole,]
+[like fireflies trapped in steel,]
+[they hypnotize captive souls,]
+[they captivate boxed-in riders,]
+[congregate in fleeting dance,]
+[they pass the day in shadow,]
+[then, they flit away.]
+===
 top: CatLetter1.jpg[100], CatLetter2.jpg[100], CatLetter3.jpg[100], CatLetter0.jpg[50]
 top: CatLetter4.jpg[360]
 All day lain still in relaxed dream,
