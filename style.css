@@ -34,13 +34,66 @@ header.banner h1 {
   color: #4b2e6a;
 }
 
+.poem-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  min-height: 34px;
+  margin-bottom: 0.2em;
+}
+
 .poem-number {
   font-size: 2em;
   font-weight: bold;
   color: #b8a3d2;
   text-align: left;
-  margin-bottom: 0.2em;
+  margin: 0;
   font-family: 'Arial Black', Arial, sans-serif;
+}
+
+.poem-share-button {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: #6b4c7a;
+  cursor: pointer;
+}
+
+.poem-share-button:hover {
+  border-color: #b8a3d2;
+  background: #f3eaff;
+  color: #4b2e6a;
+}
+
+.poem-share-button:focus-visible {
+  outline: 2px solid #4b2e6a;
+  outline-offset: 2px;
+}
+
+.poem-share-button .share-check-icon {
+  display: none;
+}
+
+.poem-share-button.copied {
+  border-color: #3f7652;
+  background: #edf7ef;
+  color: #2e643f;
+}
+
+.poem-share-button.copied .share-link-icon {
+  display: none;
+}
+
+.poem-share-button.copied .share-check-icon {
+  display: block;
 }
 
 .poem-unit {

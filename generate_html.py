@@ -2,16 +2,26 @@ import os
 import sys
 import re
 import time
+import json
 from datetime import datetime, timezone, timedelta
 import xml.etree.ElementTree as ET
+from urllib.parse import quote
 
 POEMS_PER_PAGE = 5
+SITE_URL = 'https://invariablyhappy.com'
+SITE_TITLE = 'Everyday Majestic Musings'
 
 def html_escape(text):
     """Escape HTML special characters in text."""
     return (text.replace('&', '&amp;')
                 .replace('<', '&lt;')
                 .replace('>', '&gt;'))
+
+def html_attribute_escape(text):
+    """Escape text for use inside a double-quoted HTML attribute."""
+    return (html_escape(text)
+            .replace('"', '&quot;')
+            .replace("'", '&#x27;'))
 
 def parse_image(img_str):
     """Parse an image string of the form 'filename.jpg[width]' or 'filename.jpg'. Raises ValueError on invalid input."""
@@ -203,6 +213,44 @@ def get_first_image(block_data):
                                 return image_filename
     return None
 
+def get_poem_preview_text(block_data, max_length=200):
+    """Build a plain-text social preview from a poem's body."""
+    lines = []
+    for unit_data in block_data['units']:
+        for line in unit_data['poem_lines']:
+            line = re.sub(r'\*\*(.+?)\*\*', r'\1', line).strip()
+            if line:
+                lines.append(line)
+
+    preview = ' '.join(lines)
+    if not preview:
+        return f"Poem {block_data['poem_number']} from {SITE_TITLE}."
+    if len(preview) <= max_length:
+        return preview
+
+    truncated = preview[:max_length - 3].rsplit(' ', 1)[0].rstrip('.,:;!?')
+    return truncated + '...'
+
+def generate_share_button_html(poem_number):
+    """Generate the icon button that copies a poem's permanent URL."""
+    share_url = f'{SITE_URL}/poem-{poem_number}.html'
+    return (
+        f'  <button type="button" class="poem-share-button" data-share-url="{share_url}" '
+        f'aria-label="Copy link to poem {poem_number}" title="Copy link to poem {poem_number}">\n'
+        '    <svg class="share-link-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" '
+        'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">\n'
+        '      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>\n'
+        '      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>\n'
+        '    </svg>\n'
+        '    <svg class="share-check-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" '
+        'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">\n'
+        '      <path d="M20 6 9 17l-5-5"></path>\n'
+        '    </svg>\n'
+        '  </button>'
+    )
+
 def generate_block_html(block_data):
     """Generate HTML for a block of poem units from structured data."""
     unit_htmls = []
@@ -239,25 +287,61 @@ def generate_block_html(block_data):
     
     poem_number = block_data['poem_number']
     poem_id_attr = f' id="poem-{poem_number}"'
-    poem_number_html = f'<div class="poem-number">{poem_number}</div>\n'
-    html = f'<div class="poem-block"{poem_id_attr}>\n{poem_number_html}'
+    poem_heading_html = (
+        '<div class="poem-heading">\n'
+        f'  <div class="poem-number">{poem_number}</div>\n'
+        f'{generate_share_button_html(poem_number)}\n'
+        '</div>\n'
+    )
+    html = f'<div class="poem-block"{poem_id_attr}>\n{poem_heading_html}'
     html += '\n<br>\n'.join(unit_htmls)
     html += '\n</div>'
     return html
 
-def write_html_header(f, title, show_toc_link=True):
+def write_html_header(
+    f,
+    title,
+    show_toc_link=True,
+    description=None,
+    canonical_url=None,
+    social_image_url=None,
+    redirect_url=None,
+):
     """Write the HTML header with common meta tags, CSS, and banner."""
     css_version = int(time.time())
+    escaped_title = html_escape(title)
     f.write('<!DOCTYPE html>\n')
     f.write('<html lang="en">\n')
     f.write('<head>\n')
     f.write('  <meta charset="UTF-8">\n')
-    f.write(f'  <title>{title}</title>\n')
+    f.write(f'  <title>{escaped_title}</title>\n')
     f.write('  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">\n')
     f.write('  <meta http-equiv="Pragma" content="no-cache">\n')
     f.write('  <meta http-equiv="Expires" content="0">\n')
+    if description:
+        escaped_description = html_attribute_escape(description)
+        f.write(f'  <meta name="description" content="{escaped_description}">\n')
+        f.write(f'  <meta property="og:description" content="{escaped_description}">\n')
+        f.write(f'  <meta name="twitter:description" content="{escaped_description}">\n')
+    if canonical_url:
+        escaped_canonical_url = html_attribute_escape(canonical_url)
+        f.write(f'  <link rel="canonical" href="{escaped_canonical_url}">\n')
+        f.write('  <meta property="og:type" content="article">\n')
+        f.write(f'  <meta property="og:url" content="{escaped_canonical_url}">\n')
+        f.write(f'  <meta property="og:title" content="{html_attribute_escape(title)}">\n')
+        f.write(f'  <meta property="og:site_name" content="{SITE_TITLE}">\n')
+        f.write(f'  <meta name="twitter:title" content="{html_attribute_escape(title)}">\n')
+    if social_image_url:
+        escaped_social_image_url = html_attribute_escape(social_image_url)
+        f.write(f'  <meta property="og:image" content="{escaped_social_image_url}">\n')
+        f.write(f'  <meta name="twitter:image" content="{escaped_social_image_url}">\n')
+        f.write('  <meta name="twitter:card" content="summary_large_image">\n')
+    elif canonical_url:
+        f.write('  <meta name="twitter:card" content="summary">\n')
     f.write(f'  <link rel="stylesheet" href="style.css?v={css_version}">\n')
     f.write('  <link rel="alternate" type="application/atom+xml" title="Everyday Majestic Musings" href="atom.xml">\n')
+    if redirect_url:
+        f.write(f'  <script>window.location.replace({json.dumps(redirect_url)});</script>\n')
     f.write('</head>\n')
     f.write('<body>\n')
     f.write('  <header class="banner">\n')
@@ -359,6 +443,24 @@ def write_image_enlargement_script(f):
         
       });
     });
+
+    // Copy permanent poem links without navigating away from the page
+    document.querySelectorAll('.poem-share-button').forEach(function(button) {
+      button.addEventListener('click', async function() {
+        const originalLabel = button.getAttribute('aria-label');
+        const originalTitle = button.getAttribute('title');
+        await navigator.clipboard.writeText(button.dataset.shareUrl);
+        button.classList.add('copied');
+        button.setAttribute('aria-label', 'Link copied');
+        button.setAttribute('title', 'Link copied');
+
+        window.setTimeout(function() {
+          button.classList.remove('copied');
+          button.setAttribute('aria-label', originalLabel);
+          button.setAttribute('title', originalTitle);
+        }, 1600);
+      });
+    });
   });
         """)
     f.write('  </script>\n')
@@ -399,6 +501,36 @@ def write_page(structured_blocks, page_num, total_pages):
         f.write('</div>\n')
         f.write('  </main>\n')
         write_image_enlargement_script(f)
+        f.write('</body>\n')
+        f.write('</html>\n')
+
+def write_poem_permalink_page(block_data, page_num):
+    """Write a poem-specific preview page that redirects browsers to its paginated location."""
+    poem_number = block_data['poem_number']
+    filename = f'poem-{poem_number}.html'
+    page_file = 'index.html' if page_num == 1 else f'page{page_num}.html'
+    canonical_url = f'{SITE_URL}/{filename}'
+    redirect_url = f'/{page_file}#poem-{poem_number}'
+    first_image = get_first_image(block_data)
+    social_image_url = (
+        f'{SITE_URL}/images/{quote(first_image, safe="/")}'
+        if first_image
+        else None
+    )
+    title = f'Poem {poem_number} - {SITE_TITLE}'
+
+    with open(filename, 'w', encoding='utf-8') as f:
+        write_html_header(
+            f,
+            title,
+            description=get_poem_preview_text(block_data),
+            canonical_url=canonical_url,
+            social_image_url=social_image_url,
+            redirect_url=redirect_url,
+        )
+        f.write('  <main>\n')
+        f.write(generate_block_html(block_data) + '\n')
+        f.write('  </main>\n')
         f.write('</body>\n')
         f.write('</html>\n')
 
@@ -540,6 +672,11 @@ def main():
         start = (page_num - 1) * POEMS_PER_PAGE
         end = start + POEMS_PER_PAGE
         write_page(structured_blocks[start:end], page_num, total_pages)
+
+    # Write one poem-specific page for link previews and sharing.
+    for i, block_data in enumerate(structured_blocks):
+        page_num = (i // POEMS_PER_PAGE) + 1
+        write_poem_permalink_page(block_data, page_num)
     
     # Write the table of contents
     write_table_of_contents(structured_blocks)
