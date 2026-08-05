@@ -10,6 +10,8 @@ from urllib.parse import quote
 POEMS_PER_PAGE = 5
 SITE_URL = 'https://invariablyhappy.com'
 SITE_TITLE = 'Everyday Majestic Musings'
+LYRICAL_DIR = 'lyrical'
+LYRICAL_IMAGES_DIR = os.path.join(LYRICAL_DIR, 'images')
 
 def html_escape(text):
     """Escape HTML special characters in text."""
@@ -131,9 +133,9 @@ def generate_media_html(media_info):
     style = f' style="width:{width}px"' if width else ''
     if is_video_file(filename):
         mime_type = get_video_mime_type(filename)
-        return f'<video src="images/{filename}" type="{mime_type}" controls loop{style} preload="metadata">Your browser does not support the video tag.</video>'
+        return f'<video src="/lyrical/images/{filename}" type="{mime_type}" controls loop{style} preload="metadata">Your browser does not support the video tag.</video>'
     else:
-        return f'<img src="images/{filename}" alt="{alt}" class="poem-image"{style}>'
+        return f'<img src="/lyrical/images/{filename}" alt="{alt}" class="poem-image"{style}>'
 
 def generate_unit_html(unit_data):
     """Generate HTML for a single poem unit from structured data."""
@@ -209,7 +211,7 @@ def get_first_image(block_data):
                         # Check for common image extensions
                         for ext in ['.jpg', '.jpeg', '.png', '.gif', '.webp']:
                             image_filename = base_name + ext
-                            if os.path.exists(f'images/{image_filename}'):
+                            if os.path.exists(os.path.join(LYRICAL_IMAGES_DIR, image_filename)):
                                 return image_filename
     return None
 
@@ -272,7 +274,7 @@ def generate_block_html(block_data):
         for audio_file in unit_data['audio']:
             mime_type = get_audio_mime_type(audio_file)
             audio_html += '  <audio controls preload="metadata" style="width: 100%; max-width: 400px; margin: 10px 0;">\n'
-            audio_html += f'    <source src="audio/{audio_file}" type="{mime_type}">\n'
+            audio_html += f'    <source src="/lyrical/audio/{audio_file}" type="{mime_type}">\n'
             audio_html += '    Your browser does not support the audio element.\n'
             audio_html += '  </audio>\n'
         
@@ -338,16 +340,20 @@ def write_html_header(
         f.write('  <meta name="twitter:card" content="summary_large_image">\n')
     elif canonical_url:
         f.write('  <meta name="twitter:card" content="summary">\n')
-    f.write(f'  <link rel="stylesheet" href="style.css?v={css_version}">\n')
-    f.write('  <link rel="alternate" type="application/atom+xml" title="Everyday Majestic Musings" href="atom.xml">\n')
+    f.write(f'  <link rel="stylesheet" href="/style.css?v={css_version}">\n')
+    f.write('  <link rel="alternate" type="application/atom+xml" title="Everyday Majestic Musings" href="/atom.xml">\n')
     if redirect_url:
         f.write(f'  <script>window.location.replace({json.dumps(redirect_url)});</script>\n')
     f.write('</head>\n')
     f.write('<body>\n')
     f.write('  <header class="banner">\n')
-    f.write('    <h1><a href="/" style="color: inherit; text-decoration: none;">Everyday Majestic Musings</a></h1>\n')
+    f.write('    <nav class="section-nav" aria-label="Site sections">\n')
+    f.write('      <a href="/lyrical/index.html">Lyrical</a>\n')
+    f.write('      <a href="/visual/index.html">Visual</a>\n')
+    f.write('    </nav>\n')
+    f.write('    <h1><a href="/lyrical/index.html" style="color: inherit; text-decoration: none;">Everyday Majestic Musings</a></h1>\n')
     visibility_style = '' if show_toc_link else ' style="visibility: hidden;"'
-    element_tag = 'a href="poems.html"' if show_toc_link else 'div'
+    element_tag = 'a href="/lyrical/toc.html"' if show_toc_link else 'div'
     f.write(f'    <{element_tag} class="table-of-contents-link"{visibility_style}>Go to Table of Contents</{"a" if show_toc_link else "div"}>\n')
     f.write('  </header>\n')
 
@@ -468,7 +474,7 @@ def write_image_enlargement_script(f):
 def write_page(structured_blocks, page_num, total_pages):
     """Write a single HTML page with navigation links and 'The end.' on the last page."""
     filename = 'index.html' if page_num == 1 else f'page{page_num}.html'
-    with open(filename, 'w', encoding='utf-8') as f:
+    with open(os.path.join(LYRICAL_DIR, filename), 'w', encoding='utf-8') as f:
         write_html_header(f, 'Everyday Majestic Musings')
         f.write('  <main>\n')
         for i, block_data in enumerate(structured_blocks):
@@ -492,8 +498,8 @@ def write_page(structured_blocks, page_num, total_pages):
 
         f.write('</div>\n')
         f.write('<div style="text-align:center;margin:2em 0 1em 0;">\n')
-        f.write('<a href="atom.xml" style="color: #6b4c7a; text-decoration: none; font-size: 0.9em;">\n')
-        f.write('<img src="images/Feed-icon.svg" alt="Feed icon" class="feed-icon" style="width: 16px; height: 16px; margin-right: 0.3em; vertical-align: middle;">\n')
+        f.write('<a href="/atom.xml" style="color: #6b4c7a; text-decoration: none; font-size: 0.9em;">\n')
+        f.write('<img src="/lyrical/images/Feed-icon.svg" alt="Feed icon" class="feed-icon" style="width: 16px; height: 16px; margin-right: 0.3em; vertical-align: middle;">\n')
         f.write('Subscribe via Atom</a>\n')
         f.write('</div>\n')
         f.write('<div style="text-align:center;margin:2em 0 1em 0;font-size:0.9em;color:#666;">\n')
@@ -510,10 +516,10 @@ def write_poem_permalink_page(block_data, page_num):
     filename = f'poem-{poem_number}.html'
     page_file = 'index.html' if page_num == 1 else f'page{page_num}.html'
     canonical_url = f'{SITE_URL}/{filename}'
-    redirect_url = f'/{page_file}#poem-{poem_number}'
+    redirect_url = f'/lyrical/{page_file}#poem-{poem_number}'
     first_image = get_first_image(block_data)
     social_image_url = (
-        f'{SITE_URL}/images/{quote(first_image, safe="/")}'
+        f'{SITE_URL}/lyrical/images/{quote(first_image, safe="/")}'
         if first_image
         else None
     )
@@ -536,7 +542,7 @@ def write_poem_permalink_page(block_data, page_num):
 
 def write_table_of_contents(structured_blocks):
     """Write a table of contents page with links to each poem."""
-    with open('poems.html', 'w', encoding='utf-8') as f:
+    with open(os.path.join(LYRICAL_DIR, 'toc.html'), 'w', encoding='utf-8') as f:
         write_html_header(f, 'Table of Contents - Everyday Majestic Musings', show_toc_link=False)
         f.write('  <main>\n')
         f.write('    <h2>Table of Contents</h2>\n')
@@ -550,7 +556,7 @@ def write_table_of_contents(structured_blocks):
             poem_number = block_data['poem_number']
             
             if first_image:
-                thumbnail_html = f'<img src="images/{first_image}" alt="" style="max-width: 96px; max-height: 96px; margin-right: 0.5em; vertical-align: middle; border-radius: 3px; cursor: default;">'
+                thumbnail_html = f'<img src="/lyrical/images/{first_image}" alt="" style="max-width: 96px; max-height: 96px; margin-right: 0.5em; vertical-align: middle; border-radius: 3px; cursor: default;">'
                 f.write(f'      <li style="display: flex; align-items: center; margin-bottom: 0.5em;"><span style="font-weight: bold; min-width: 2.5em; margin-right: 0.5em;">{poem_number}.</span>{thumbnail_html}<a href="{page_file}#poem-{poem_number}">{html_escape(first_line)}</a></li>\n')
             else:
                 f.write(f'      <li style="display: flex; align-items: center; margin-bottom: 0.5em;"><span style="font-weight: bold; min-width: 2.5em; margin-right: 0.5em;">{poem_number}.</span><a href="{page_file}#poem-{poem_number}">{html_escape(first_line)}</a></li>\n')
@@ -588,9 +594,9 @@ def generate_atom_entry_content(block_data):
                     
                 if is_video_file(filename):
                     mime_type = get_video_mime_type(filename)
-                    content_html.append(f'<p><video src="https://invariablyhappy.com/images/{filename}" type="{mime_type}" controls preload="metadata"{style}>Your browser does not support the video tag.</video></p>')
+                    content_html.append(f'<p><video src="https://invariablyhappy.com/lyrical/images/{filename}" type="{mime_type}" controls preload="metadata"{style}>Your browser does not support the video tag.</video></p>')
                 else:
-                    content_html.append(f'<p><img src="https://invariablyhappy.com/images/{filename}" alt="{os.path.splitext(filename)[0]}"{style}></p>')
+                    content_html.append(f'<p><img src="https://invariablyhappy.com/lyrical/images/{filename}" alt="{os.path.splitext(filename)[0]}"{style}></p>')
         
         # Add poem text
         if unit_data['poem_lines']:
@@ -601,7 +607,7 @@ def generate_atom_entry_content(block_data):
         # Add audio
         for audio_file in unit_data['audio']:
             mime_type = get_audio_mime_type(audio_file)
-            content_html.append(f'<p><audio controls preload="metadata"><source src="https://invariablyhappy.com/audio/{audio_file}" type="{mime_type}">Your browser does not support the audio element.</audio></p>')
+            content_html.append(f'<p><audio controls preload="metadata"><source src="https://invariablyhappy.com/lyrical/audio/{audio_file}" type="{mime_type}">Your browser does not support the audio element.</audio></p>')
     
     return '\n'.join(content_html)
 
@@ -622,7 +628,7 @@ def write_atom_feed(structured_blocks):
 
     alt_link = ET.SubElement(feed, 'link')
     alt_link.set('rel', 'alternate')
-    alt_link.set('href', 'https://invariablyhappy.com/')
+    alt_link.set('href', 'https://invariablyhappy.com/lyrical/index.html')
     
     # Add entries for each poem
     for i, block_data in enumerate(structured_blocks):
@@ -640,7 +646,7 @@ def write_atom_feed(structured_blocks):
         # Link to the poem
         link = ET.SubElement(entry, 'link')
         link.set('rel', 'alternate')
-        link.set('href', f'https://invariablyhappy.com/{page_file}#poem-{poem_number}')
+        link.set('href', f'https://invariablyhappy.com/lyrical/{page_file}#poem-{poem_number}')
         
         # Content
         content = ET.SubElement(entry, 'content')
@@ -655,6 +661,22 @@ def write_atom_feed(structured_blocks):
         f.write(b'<?xml version="1.0" encoding="utf-8"?>\n')
         tree.write(f, encoding='utf-8', xml_declaration=False)
 
+def remove_legacy_outputs():
+    """Remove generated files left behind by the old root-level layout."""
+    legacy_files = ['poems.html', os.path.join(LYRICAL_DIR, 'poems.html')]
+    legacy_files.extend(
+        filename
+        for filename in os.listdir('.')
+        if re.fullmatch(r'page\d+\.html', filename)
+    )
+    for filename in legacy_files:
+        if os.path.exists(filename):
+            os.remove(filename)
+
+    stale_lyrical_feed = os.path.join(LYRICAL_DIR, 'atom.xml')
+    if os.path.exists(stale_lyrical_feed):
+        os.remove(stale_lyrical_feed)
+
 def main():
     """Main entry point: read poems.txt, parse, and output paginated HTML pages."""
     if len(sys.argv) < 2:
@@ -666,6 +688,8 @@ def main():
 
     structured_blocks = parse_poems_to_structured_data(content)
     total_pages = (len(structured_blocks) + POEMS_PER_PAGE - 1) // POEMS_PER_PAGE
+    os.makedirs(LYRICAL_DIR, exist_ok=True)
+    remove_legacy_outputs()
     
     # Write the main pages
     for page_num in range(1, total_pages + 1):

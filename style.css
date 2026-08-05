@@ -22,6 +22,54 @@ header.banner h1 {
   text-align: left;
 }
 
+.section-nav {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 0.65em;
+  font-size: 0.85em;
+}
+
+.section-nav a {
+  color: #6b4c7a;
+  font-weight: normal;
+}
+
+.hub-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  max-width: 42rem;
+}
+
+.hub-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 12rem;
+  padding: 1.25rem 2rem;
+  border: 1px solid #cbb7df;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f8f2ff 0%, #eee3f8 100%);
+  box-shadow: 0 3px 10px rgba(75, 46, 106, 0.12);
+  color: #4b2e6a;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.hub-link:hover {
+  transform: translateY(-2px);
+  border-color: #9f82bd;
+  box-shadow: 0 6px 16px rgba(75, 46, 106, 0.2);
+}
+
+.hub-link:focus-visible {
+  outline: 2px solid #4b2e6a;
+  outline-offset: 3px;
+}
+
 .table-of-contents-link {
   display: block;
   color: #6b4c7a;
@@ -32,6 +80,17 @@ header.banner h1 {
 
 .table-of-contents-link:hover {
   color: #4b2e6a;
+}
+
+.banner-spacer {
+  visibility: hidden;
+}
+
+.visual-subheading {
+  margin: 0 0 2rem;
+  color: #4b2e6a;
+  font-size: 1.75rem;
+  font-weight: normal;
 }
 
 .poem-heading {

@@ -1,3 +1,5 @@
 .DS_Store
 *.html
 *.xml
+!/index.html
+!visual/index.html

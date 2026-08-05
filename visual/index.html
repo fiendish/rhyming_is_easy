@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Majesty</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .visual-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 90rem;
+      line-height: 1.5;
+    }
+    .visual-subheading { grid-column: 1 / -1; }
+    figure { margin: 0; }
+    figure img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+    .visual-gallery .poem-image.enlarged-image {
+      aspect-ratio: auto;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <header class="banner">
+    <nav class="section-nav" aria-label="Site sections">
+      <a href="/lyrical/index.html">Lyrical</a>
+      <a href="/visual/index.html">Visual</a>
+    </nav>
+    <h1>Majesty</h1>
+    <div class="table-of-contents-link banner-spacer" aria-hidden="true">Spacer</div>
+  </header>
+  <main class="visual-gallery">
+    <h2 class="visual-subheading">Art[hur]</h2>
+    <figure>
+      <img src="hospital.jpg" alt="hospital" class="poem-image">
+    </figure>
+    <figure>
+      <img src="legup.jpg" alt="legup" class="poem-image">
+    </figure>
+    <figure>
+      <img src="oldphasereyes.jpg" alt="oldphasereyes" class="poem-image">
+    </figure>
+    <figure>
+      <img src="portrait.jpg" alt="portrait" class="poem-image">
+    </figure>
+    <figure>
+      <img src="shrimp.jpg" alt="shrimp" class="poem-image">
+    </figure>
+    <figure>
+      <img src="sleep.jpg" alt="sleep" class="poem-image">
+    </figure>
+    <figure>
+      <img src="marker.jpg" alt="marker" class="poem-image">
+    </figure>
+    <figure>
+      <img src="pink.jpg" alt="pink" class="poem-image">
+    </figure>
+  </main>
+  <script>
+    document.querySelectorAll('.poem-image').forEach(function(img) {
+      img.addEventListener('click', function(event) {
+        if (img.classList.contains('enlarged-image')) {
+          img.classList.remove('enlarged-image');
+          const backdrop = document.querySelector('.enlarged-image-backdrop');
+          if (backdrop) backdrop.remove();
+        } else {
+          const backdrop = document.createElement('div');
+          backdrop.className = 'enlarged-image-backdrop';
+          backdrop.addEventListener('click', function() {
+            img.classList.remove('enlarged-image');
+            backdrop.remove();
+          });
+          document.body.appendChild(backdrop);
+          img.classList.add('enlarged-image');
+        }
+        event.stopPropagation();
+      });
+    });
+  </script>
+</body>
+</html>
