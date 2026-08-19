@@ -384,71 +384,72 @@ def write_image_enlargement_script(f):
     });
 
     // Overflow indicator functionality
-    function updateOverflowIndicators() {
-      document.querySelectorAll('.poem-unit').forEach(function(unit) {
-        const pre = unit.querySelector('pre');
-        if (!pre) return;
-        
-        // Get or create indicators
-        let rightIndicator = unit.querySelector('.overflow-indicator-right');
-        let leftIndicator = unit.querySelector('.overflow-indicator-left');
-        
-        if (!rightIndicator) {
-          rightIndicator = document.createElement('div');
-          rightIndicator.className = 'overflow-indicator-right';
-          unit.appendChild(rightIndicator);
-        }
-        
-        if (!leftIndicator) {
-          leftIndicator = document.createElement('div');
-          leftIndicator.className = 'overflow-indicator-left';
-          unit.appendChild(leftIndicator);
-        }
-        
-        // Check if content overflows horizontally
-        const hasOverflow = pre.scrollWidth > pre.clientWidth;
-        const scrollLeft = pre.scrollLeft;
-        const maxScrollLeft = pre.scrollWidth - pre.clientWidth;
-        
-        if (hasOverflow) {
-          // Position indicators to align with the pre element
-          const preRect = pre.getBoundingClientRect();
-          const unitRect = unit.getBoundingClientRect();
-          const top = (preRect.top - unitRect.top) + 'px';
-          const height = preRect.height + 'px';
-          
-          rightIndicator.style.top = top;
-          rightIndicator.style.height = height;
-          leftIndicator.style.top = top;
-          leftIndicator.style.height = height;
-          
-          // Show right indicator if not scrolled all the way right
-          const showRight = scrollLeft < maxScrollLeft - 1;
-          rightIndicator.style.display = showRight ? 'block' : 'none';
-          
-          // Show left indicator if scrolled away from the left
-          const showLeft = scrollLeft > 1;
-          leftIndicator.style.display = showLeft ? 'block' : 'none';
-          
-        } else {
-          rightIndicator.style.display = 'none';
-          leftIndicator.style.display = 'none';
-        }
-      });
+    const overflowItems = [];
+
+    function updateOverflowIndicator(item) {
+      const scroller = item.scroller;
+      const maxScrollLeft = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+      const hasOverflow = maxScrollLeft > 1;
+
+      if (!hasOverflow) {
+        item.rightIndicator.style.display = 'none';
+        item.leftIndicator.style.display = 'none';
+        return;
+      }
+
+      // Position this pair of indicators alongside its poem text section.
+      const scrollerRect = scroller.getBoundingClientRect();
+      const unitRect = item.unit.getBoundingClientRect();
+      const top = (scrollerRect.top - unitRect.top) + 'px';
+      const height = scrollerRect.height + 'px';
+
+      item.rightIndicator.style.top = top;
+      item.rightIndicator.style.height = height;
+      item.leftIndicator.style.top = top;
+      item.leftIndicator.style.height = height;
+
+      // iOS can briefly report an out-of-range value during rubber-band scrolling.
+      const scrollLeft = Math.max(0, Math.min(scroller.scrollLeft, maxScrollLeft));
+      item.rightIndicator.style.display = scrollLeft < maxScrollLeft - 1 ? 'block' : 'none';
+      item.leftIndicator.style.display = scrollLeft > 1 ? 'block' : 'none';
     }
 
-    // Update indicators on load and resize
-    updateOverflowIndicators();
-    window.addEventListener('resize', updateOverflowIndicators);
-    
-    // Update indicators when scrolling horizontally
-    document.querySelectorAll('pre').forEach(function(pre) {
-      pre.addEventListener('scroll', function() {
-        // Update indicator visibility based on scroll position
-        updateOverflowIndicators();
-        
-      });
+    function updateOverflowIndicators() {
+      overflowItems.forEach(updateOverflowIndicator);
+    }
+
+    // All stanzas in one poem unit scroll together inside their text section.
+    document.querySelectorAll('.poem-unit .text-content').forEach(function(scroller) {
+      const unit = scroller.closest('.poem-unit');
+      if (!unit) return;
+
+      const rightIndicator = document.createElement('div');
+      rightIndicator.className = 'overflow-indicator-right';
+      rightIndicator.setAttribute('aria-hidden', 'true');
+      unit.appendChild(rightIndicator);
+
+      const leftIndicator = document.createElement('div');
+      leftIndicator.className = 'overflow-indicator-left';
+      leftIndicator.setAttribute('aria-hidden', 'true');
+      unit.appendChild(leftIndicator);
+
+      const item = {
+        scroller: scroller,
+        unit: unit,
+        rightIndicator: rightIndicator,
+        leftIndicator: leftIndicator
+      };
+      overflowItems.push(item);
+
+      scroller.addEventListener('scroll', function() {
+        updateOverflowIndicator(item);
+      }, { passive: true });
     });
+
+    // Measure once immediately, again after media load, and whenever layout changes.
+    updateOverflowIndicators();
+    window.addEventListener('load', updateOverflowIndicators);
+    window.addEventListener('resize', updateOverflowIndicators);
 
     // Copy permanent poem links without navigating away from the page
     document.querySelectorAll('.poem-share-button').forEach(function(button) {

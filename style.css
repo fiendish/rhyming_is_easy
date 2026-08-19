@@ -207,6 +207,13 @@ hr {
 
 .text-content {
   margin-top: 0.4em;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.left-image .text-content {
+  min-width: 0;
+  max-width: 100%;
 }
 
 pre {
@@ -215,7 +222,6 @@ pre {
   font-size: 1.2em;
   line-height: 1.4;
   font-family: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
-  overflow-x: auto;
   max-width: 100%;
   position: relative;
 }
